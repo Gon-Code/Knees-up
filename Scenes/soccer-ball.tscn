@@ -1,0 +1,202 @@
+[gd_scene load_steps=18 format=3 uid="uid://snj7dfxw8xdm"]
+
+[ext_resource type="Texture2D" uid="uid://cwegismfrotav" path="res://assets/sports-balls/football.png" id="1_6st3y"]
+[ext_resource type="Script" uid="uid://dsgnv8sj7il6m" path="res://Scripts/soccer_ball.gd" id="2_bpmuk"]
+
+[sub_resource type="Curve2D" id="Curve2D_6st3y"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -4, 0, 0, 0, 0, 0, 349, -223, 0, 0, 0, 0, -4, 0, 0, 0, 0, 0, -290, -192)
+}
+point_count = 4
+
+[sub_resource type="Animation" id="Animation_372k8"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_6st3y")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path2D/PathFollow2D/Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path2D/PathFollow2D/Sprite2D:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.28319]
+}
+
+[sub_resource type="Animation" id="Animation_v4hc5"]
+resource_name = "Move_left"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_6st3y")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.709, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_bx7gy"]
+resource_name = "Move-Soccer-Ball"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D/Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_6st3y")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.33]
+}
+
+[sub_resource type="Animation" id="Animation_bpmuk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path2D/PathFollow2D/Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [6.28319]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_372k8"]
+_data = {
+&"Idle": SubResource("Animation_372k8"),
+&"Move_left": SubResource("Animation_v4hc5"),
+&"Move_right": SubResource("Animation_bx7gy"),
+&"RESET": SubResource("Animation_bpmuk")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bpmuk"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bx7gy"]
+animation = &"Move_left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v4hc5"]
+animation = &"Move_right"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_372k8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8qb56"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ohfst"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_eyw22"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kxt58"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_kutm4"]
+states/Idle/node = SubResource("AnimationNodeAnimation_bpmuk")
+states/Idle/position = Vector2(306, 149)
+states/Move_left/node = SubResource("AnimationNodeAnimation_bx7gy")
+states/Move_left/position = Vector2(485, 35)
+states/Move_right/node = SubResource("AnimationNodeAnimation_v4hc5")
+states/Move_right/position = Vector2(485, 247)
+states/Start/position = Vector2(133, 149)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_372k8"), "Idle", "Move_right", SubResource("AnimationNodeStateMachineTransition_8qb56"), "Idle", "Move_left", SubResource("AnimationNodeStateMachineTransition_ohfst"), "Move_left", "Idle", SubResource("AnimationNodeStateMachineTransition_eyw22"), "Move_right", "Idle", SubResource("AnimationNodeStateMachineTransition_kxt58")]
+
+[node name="Soccer-ball" type="Node2D"]
+script = ExtResource("2_bpmuk")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_6st3y")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(-4, 0)
+rotation = -0.563423
+
+[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
+rotation = 6.28319
+texture = ExtResource("1_6st3y")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_372k8")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeStateMachine_kutm4")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="Timer" type="Timer" parent="."]
