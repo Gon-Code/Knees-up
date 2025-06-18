@@ -2,24 +2,23 @@ name: Run Godot Tests
 
 on:
   push:
-    branches: [main]
+    branches: ["**"]
   pull_request:
-    branches: [main]
+    branches: ["**"]
 
 jobs:
-  test:
+  godot-tests:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Setup Godot
+      - name: Set up Godot
         uses: firebelley/setup-godot@v1.3
         with:
-          version: 4.4.1
+          version: 4.4.4
           headless: true
-          export-templates: false
 
-      - name: Run Godot Tests
-        run: godot --headless --run-tests --path .
+      - name: Run Godot tests
+        run: godot --headless --path . --run-tests
