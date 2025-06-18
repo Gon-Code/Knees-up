@@ -13,7 +13,11 @@ jobs:
     - uses: actions/checkout@v3
     - uses: croconut/godot-tester@v5.2
       with:
-        version: "4.4.4"
+        # required
+        version: "4.4.1"
+        # custom download
+        custom-godot-dl-url: "https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip"
+        custom-godot-binary-path: "Godot_v4.4.1-stable_linux.x86_64"
         path: "."
         test-dir: "res://test"
         import-time: "5"
