@@ -25,7 +25,7 @@ func _physics_process(delta):
 
 	# Mover al personaje en el eje X en base al valor del giroscopio
 	velocity.x = -gyro_x * speed
-
+	
 	# Bloquear el movimiento vertical
 	velocity.y = 0
 
