@@ -2,3 +2,9 @@
 .godot/
 /android/
 *.tmp
+
+# Archivos .dll
+*.dll
+
+# Archivos .import carpeta docs
+docs/**/*.import
