@@ -7,4 +7,4 @@
 *.dll
 
 # Archivos .import carpeta docs
-docs/**/*.import
+docs/*.import
