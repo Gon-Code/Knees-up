@@ -173,6 +173,7 @@ states/Move_right/node = SubResource("AnimationNodeAnimation_v4hc5")
 states/Move_right/position = Vector2(485, 247)
 states/Start/position = Vector2(133, 149)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_372k8"), "Idle", "Move_right", SubResource("AnimationNodeStateMachineTransition_8qb56"), "Idle", "Move_left", SubResource("AnimationNodeStateMachineTransition_ohfst"), "Move_left", "Idle", SubResource("AnimationNodeStateMachineTransition_eyw22"), "Move_right", "Idle", SubResource("AnimationNodeStateMachineTransition_kxt58")]
+graph_offset = Vector2(67, 13)
 
 [node name="Soccer-ball" type="Node2D"]
 script = ExtResource("2_bpmuk")

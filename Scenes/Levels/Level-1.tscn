@@ -5,5 +5,4 @@
 [node name="Level-1" type="Node2D"]
 
 [node name="Soccer-ball" parent="." instance=ExtResource("1_oripj")]
-
-[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 326)
