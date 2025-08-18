@@ -9,7 +9,6 @@ extends Control
 var options_music = load("res://assets/sfx/options.mp3")
 var main_menu_music = load("res://assets/sfx/menu_principal.wav")
 
-
 ## Funcion para salir del juego con el boton Salir
 func _on_exit_pressed() -> void:
 	button_effect.play()
