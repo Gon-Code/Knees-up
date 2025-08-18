@@ -104,11 +104,11 @@ theme_override_styles/hover = ExtResource("3_u7lva")
 theme_override_styles/normal = ExtResource("1_5wsvm")
 text = "Salir"
 
-[node name="BackgroudMusic" type="AudioStreamPlayer2D" parent="."]
+[node name="BackgroudMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_gih0s")
 autoplay = true
 
-[node name="ButtonMusicEffect" type="AudioStreamPlayer2D" parent="."]
+[node name="ButtonMusicEffect" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_k33u3")
 
 [connection signal="pressed" from="VBoxContainer/New" to="." method="_on_new_pressed"]
