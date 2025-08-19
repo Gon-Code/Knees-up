@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 var accel_threshold: float = 1.2 # En G's
 
