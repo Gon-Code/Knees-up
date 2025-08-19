@@ -15,6 +15,10 @@ run/main_scene="uid://cimox81vr1k0l"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+PlayerMovement="*res://Scripts/autoloads/player_movement.gd"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/gut/plugin.cfg")
