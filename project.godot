@@ -17,7 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerMovement="*res://Scripts/autoloads/player_movement.gd"
+PlayerMovement="*res://scripts/autoloads/player_movement.gd"
+AudioManager="*res://scripts/autoloads/audio_manager.tscn"
 
 [editor_plugins]
 
