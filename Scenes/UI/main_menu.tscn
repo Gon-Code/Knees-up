@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://cimox81vr1k0l"]
+[gd_scene load_steps=7 format=3 uid="uid://cimox81vr1k0l"]
 
-[ext_resource type="StyleBox" uid="uid://27ti0phm6h43" path="res://Scenes/UI/button-style.tres" id="1_5wsvm"]
+[ext_resource type="StyleBox" uid="uid://27ti0phm6h43" path="res://scenes/UI/button-style.tres" id="1_5wsvm"]
 [ext_resource type="Texture2D" uid="uid://cdvxiyijxrjfo" path="res://assets/UI/main-menu.png" id="1_i2xx2"]
-[ext_resource type="Script" uid="uid://dpbx2och8havq" path="res://Scripts/menu/main_menu.gd" id="1_mrfpk"]
+[ext_resource type="Script" uid="uid://dpbx2och8havq" path="res://scripts/menu/main_menu.gd" id="1_mrfpk"]
 [ext_resource type="FontFile" uid="uid://c62vb51gatlkj" path="res://assets/fonts/Bungee-Regular.ttf" id="2_o14dv"]
-[ext_resource type="StyleBox" uid="uid://bq12h6x6yqfyy" path="res://Scenes/UI/hover-button-style.tres" id="3_u7lva"]
-[ext_resource type="AudioStream" uid="uid://crbnykm1igauv" path="res://assets/sfx/menu_principal.wav" id="6_gih0s"]
-[ext_resource type="AudioStream" uid="uid://cfn5etxh8dpbu" path="res://assets/sfx/button-1.wav" id="7_k33u3"]
+[ext_resource type="StyleBox" uid="uid://bq12h6x6yqfyy" path="res://scenes/UI/hover-button-style.tres" id="3_u7lva"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o14dv"]
 texture = ExtResource("1_i2xx2")
@@ -103,13 +101,6 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/hover = ExtResource("3_u7lva")
 theme_override_styles/normal = ExtResource("1_5wsvm")
 text = "Salir"
-
-[node name="BackgroudMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_gih0s")
-autoplay = true
-
-[node name="ButtonMusicEffect" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_k33u3")
 
 [connection signal="pressed" from="VBoxContainer/New" to="." method="_on_new_pressed"]
 [connection signal="pressed" from="VBoxContainer/Load" to="." method="_on_load_pressed"]
