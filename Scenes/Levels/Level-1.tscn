@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://bc7t54pnmkeg1"]
-
-[ext_resource type="PackedScene" uid="uid://snj7dfxw8xdm" path="res://Scenes/soccer-ball.tscn" id="1_oripj"]
-
-[node name="Level-1" type="Node2D"]
-
-[node name="Soccer-ball" parent="." instance=ExtResource("1_oripj")]
-position = Vector2(577, 326)
