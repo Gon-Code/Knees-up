@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://de6v5pytmsmva"]
 
-[ext_resource type="Script" uid="uid://fd4vn74ss0kl" path="res://Scripts/soccer_ball_test_patear.gd" id="1_hhbe8"]
-[ext_resource type="Texture2D" uid="uid://cwegismfrotav" path="res://assets/sports-balls/football.png" id="2_j31nr"]
+[ext_resource type="Script" uid="uid://fd4vn74ss0kl" path="res://scripts/soccer_ball_test_patear.gd" id="1_ermx3"]
+[ext_resource type="Texture2D" uid="uid://cwegismfrotav" path="res://assets/sports-balls/football.png" id="2_d0p2y"]
 
 [sub_resource type="Curve2D" id="Curve2D_6st3y"]
 _data = {
@@ -22,7 +22,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_j31nr")]
+"values": [ExtResource("2_d0p2y")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -62,7 +62,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_j31nr")]
+"values": [ExtResource("2_d0p2y")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -90,7 +90,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_j31nr")]
+"values": [ExtResource("2_d0p2y")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -176,7 +176,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 graph_offset = Vector2(67, 13)
 
 [node name="Soccer-ball" type="Node2D"]
-script = ExtResource("1_hhbe8")
+script = ExtResource("1_ermx3")
 
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_6st3y")
@@ -187,7 +187,7 @@ rotation = -0.563423
 
 [node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
 rotation = 6.28319
-texture = ExtResource("2_j31nr")
+texture = ExtResource("2_d0p2y")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
