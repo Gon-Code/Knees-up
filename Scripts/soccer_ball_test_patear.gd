@@ -16,11 +16,14 @@ func _ready() -> void:
 	Gyro.sdl_init()
 	Gyro.init_joycons()
 	Gyro.joycon_auto_calibration()
+	print("HOLA")
+	print(AudioServer.get_time_to_next_mix())
 
 
 func _process(delta: float) -> void:
 	Gyro.joycon_polling()
-	
+	print("HOLA")
+	print(AudioServer.get_time_to_next_mix())
 	# Diccionario con left / right
 	var accel: Dictionary = Gyro.joycon_get_acceleration()
 	if PlayerMovement.is_kick_detected(accel,"left") :

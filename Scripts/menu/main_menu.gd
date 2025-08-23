@@ -4,7 +4,7 @@ extends Control
 # Recursos precargados (más eficiente que load())
 const OPTIONS_MUSIC: AudioStream = preload("res://assets/sfx/options.ogg")
 const MAIN_MENU_MUSIC: AudioStream = preload("res://assets/sfx/menu_principal.ogg")
-const LEVEL_1: PackedScene = preload("res://scenes/levels/level-1.tscn")
+const LEVEL_1: PackedScene = preload("res://scenes/levels/level_1.tscn")
 const BUTTON_CLICK: AudioStream = preload("res://assets/sfx/button-1.wav")
 
 ## Funcion Ready, reproducimos la música de inicio
