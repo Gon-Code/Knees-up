@@ -66,10 +66,7 @@ func setup_ball_texture(ball_type: Resource) -> void:
 	texture = ball_type
 
 func move_ball_to_hit_zone(delta: float) -> void:
-	if origin == 'left':
-		position = position.move_toward(hit_zone_pos, speed_to_hit_zone*delta)
-	if origin == 'right':
-		position = position.move_toward(hit_zone_pos, speed_to_hit_zone*delta)
+	position = position.move_toward(hit_zone_pos, speed_to_hit_zone*delta)
 
 func move_ball_to_target(delta: float) -> void:
 	if origin == 'left':
