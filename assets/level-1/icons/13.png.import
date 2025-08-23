@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tr5vuajfql54"
-path="res://.godot/imported/valleyball.png-9e5fada797abd4f8e8279933102b997d.ctex"
+uid="uid://cpwdqywqabso1"
+path="res://.godot/imported/13.png-b1fa2123679e532ed33e7506f55cc7b5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sports-balls/valleyball.png"
-dest_files=["res://.godot/imported/valleyball.png-9e5fada797abd4f8e8279933102b997d.ctex"]
+source_file="res://assets/level-1/icons/13.png"
+dest_files=["res://.godot/imported/13.png-b1fa2123679e532ed33e7506f55cc7b5.ctex"]
 
 [params]
 
