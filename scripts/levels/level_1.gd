@@ -9,11 +9,11 @@ extends Node2D
 @onready var TENNIS = preload("res://assets/sports-balls/tennis.png")
 @onready var VOLLEYBALL = preload("res://assets/sports-balls/volleyball.png")
 
-@onready var Sport_balls = [ BASEBALL, BASKETBALL, BOWLING, FOOTBALL, TENNIS, GOLF, VOLLEYBALL]
+@onready var Sport_balls = [BASEBALL, BASKETBALL, BOWLING, FOOTBALL, TENNIS, GOLF, VOLLEYBALL]
 	
 @onready var moving_ball_scene = preload("res://scenes/levels/moving_ball.tscn")
 @onready var music: AudioStreamPlayer = $Music
-@onready var beatmap_file = FileAccess.open("res://assets/level-1/easy/beatmap.json",FileAccess.READ)
+@onready var beatmap_file = FileAccess.open("res://assets/level-1/easy/beatmap.json", FileAccess.READ)
 
 @export var accel_threshold: float = 1.2 # Umbral en m/s²
 
@@ -45,7 +45,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var time = (Time.get_ticks_usec() - time_begin) / 1000000.0
 	time -= time_delay - travel_time
-	time = max(0,time)
+	time = max(0, time)
 	#print("Time is: ", time)
 	if Input.is_action_just_pressed("left"):
 		var event = {
@@ -53,7 +53,7 @@ func _process(_delta: float) -> void:
 			"side": "left"
 		}
 		hit_events.append(event)
-		print(event,",")
+		print(event, ",")
 	if Input.is_action_just_pressed("right"):
 		var event = {
 			"time": time,
@@ -68,7 +68,7 @@ func _process(_delta: float) -> void:
 		create_moving_ball(note["side"], random_sport_ball())
 	
 # Funcion que instancia los balones
-func create_moving_ball(origin: String, ball_type: Resource) ->  void:
+func create_moving_ball(origin: String, ball_type: Resource) -> void:
 	var ball = moving_ball_scene.instantiate()
 	ball.setup(origin, ball_type)
 	add_child(ball)
