@@ -15,6 +15,11 @@ run/main_scene="uid://cimox81vr1k0l"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[audio]
+
+driver/output_latency=10
+driver/mix_rate=48000
+
 [autoload]
 
 PlayerMovement="*res://scripts/autoloads/player_movement.gd"
