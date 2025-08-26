@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://pfp3o81hdxjr"]
+[gd_scene load_steps=8 format=3 uid="uid://pfp3o81hdxjr"]
 
 [ext_resource type="Texture2D" uid="uid://brvlhq84ck1u" path="res://assets/sports-balls/baseball.png" id="1_pb2qk"]
 [ext_resource type="Script" uid="uid://b15fjycvkoa7" path="res://scripts/levels/moving_ball.gd" id="2_e05ji"]
+[ext_resource type="AudioStream" uid="uid://cfn5etxh8dpbu" path="res://assets/sfx/button-1.wav" id="3_e05ji"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pb2qk"]
 
@@ -63,3 +64,6 @@ libraries = {
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_e05ji")

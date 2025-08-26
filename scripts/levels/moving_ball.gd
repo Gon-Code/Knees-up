@@ -1,5 +1,6 @@
 extends Sprite2D
 
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var speed_to_hit_zone: float = 400.0
 @export var speed_to_target: float = 600.0
@@ -34,6 +35,7 @@ func _process(delta: float) -> void:
 		move_ball_to_hit_zone(delta)
 		
 	if on_hit_area and PlayerMovement.is_kick_detected(PlayerMovement.accel,origin):
+			audio_stream_player.play()
 			move_ball_to_target(delta)
 			is_ball_moving_to_hit_zone = false
 			is_ball_moving_to_target = true
