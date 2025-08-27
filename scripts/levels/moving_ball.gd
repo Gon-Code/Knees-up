@@ -8,6 +8,7 @@ extends Sprite2D
 @export var accel: Dictionary
 @export var on_hit_area = false
 @export var on_target_area = false
+@export var hit_the_beat = false
 
 # Posiciones inicial y final
 const initial_pos_left = Vector2(-66.0,511.0)
@@ -33,13 +34,17 @@ func _process(delta: float) -> void:
 	
 	if is_ball_moving_to_hit_zone:
 		move_ball_to_hit_zone(delta)
-		
-	if on_hit_area and PlayerMovement.is_kick_detected(PlayerMovement.accel,origin):
+	
+	if not on_hit_area and PlayerMovement.is_kick_detected(PlayerMovement.accel, origin):
+		# Vibrar o emitir sonido de equivocacion
+		joycon_rumble(origin)
+
+	if on_hit_area and not hit_the_beat and PlayerMovement.is_kick_detected(PlayerMovement.accel, origin):
 			audio_stream_player.play()
 			move_ball_to_target(delta)
 			is_ball_moving_to_hit_zone = false
 			is_ball_moving_to_target = true
-			on_hit_area = false
+			hit_the_beat = true
 
 	if is_ball_moving_to_target:
 		move_ball_to_target(delta)
@@ -79,3 +84,9 @@ func move_ball_to_target(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("calibrar"):
 		is_ball_moving_to_target = true
+
+func joycon_rumble(side: String) -> void:
+	if side == "left":
+		PlayerMovement.Gyro.joycon_rumble(0, 0xFFFF, 500)
+	else:
+		PlayerMovement.Gyro.joycon_rumble(0xFFFF, 0, 500)
