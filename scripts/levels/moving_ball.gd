@@ -39,12 +39,12 @@ func _process(delta: float) -> void:
 		# Vibrar o emitir sonido de equivocacion
 		joycon_rumble(origin)
 
-	if on_hit_area and not hit_the_beat and PlayerMovement.is_kick_detected(PlayerMovement.accel, origin):
-			audio_stream_player.play()
-			move_ball_to_target(delta)
-			is_ball_moving_to_hit_zone = false
-			is_ball_moving_to_target = true
-			hit_the_beat = true
+	if on_hit_area and not hit_the_beat and (PlayerMovement.is_kick_detected(PlayerMovement.accel, origin) or Input.is_action_just_pressed("up")):
+		audio_stream_player.play()
+		move_ball_to_target(delta)
+		is_ball_moving_to_hit_zone = false
+		is_ball_moving_to_target = true
+		hit_the_beat = true
 
 	if is_ball_moving_to_target:
 		move_ball_to_target(delta)
