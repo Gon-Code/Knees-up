@@ -1,5 +1,8 @@
 extends Node2D
 
+# Animation Player
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 # Balones
 @onready var BASEBALL = preload("res://assets/sports-balls/baseball.png")
 @onready var BASKETBALL = preload("res://assets/sports-balls/basketball.png")
@@ -35,12 +38,13 @@ func _ready() -> void:
 	if beatmap_file and not edit_mode:
 		var content = beatmap_file.get_as_text()
 		beatmap = JSON.parse_string(content)
-		print("beatmap cargado !", beatmap)
+		#print("beatmap cargado !", beatmap)
 		
 	# Starts the Music !
 	time_begin = Time.get_ticks_usec()
 	time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
 	music.play()
+	animation_player.play("pulse")
 
 func _process(_delta: float) -> void:
 	var time = (Time.get_ticks_usec() - time_begin) / 1000000.0
