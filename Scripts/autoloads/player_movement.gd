@@ -10,18 +10,16 @@ func _ready() -> void:
 	# Printea los dispositivos conectados
 	for device_id in Input.get_connected_joypads():
 		print("Joypad conectado: ", Input.get_joy_name(device_id))
-	
 	# Inicializa la libreria SDLGyro
 	Gyro.sdl_init()
 	Gyro.init_joycons()
 	Gyro.joycon_auto_calibration()
 
-
 func _process(delta: float) -> void:
 	Gyro.joycon_polling()
 	# Diccionario con left / right
 	accel = Gyro.joycon_get_acceleration()
-	
+
 # Devuelve true si se detecta una patada en la pierna indicada ('left' o 'right')
 func is_kick_detected(accel: Dictionary, leg: String) -> bool:
 	leg = switch_controls(leg)
