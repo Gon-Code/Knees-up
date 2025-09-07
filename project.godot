@@ -24,6 +24,10 @@ driver/mix_rate=48000
 PlayerMovement="*res://scripts/autoloads/player_movement.gd"
 AudioManager="*res://scripts/autoloads/audio_manager.tscn"
 
+[display]
+
+window/vsync/vsync_mode=0
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/gut/plugin.cfg")
