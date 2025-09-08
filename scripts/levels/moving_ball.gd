@@ -40,6 +40,7 @@ func _process(delta: float) -> void:
 		joycon_rumble(origin)
 
 	if on_hit_area and not hit_the_beat and (PlayerMovement.is_kick_detected(PlayerMovement.accel, origin) or Input.is_action_just_pressed("up")):
+		display_message()
 		audio_stream_player.play()
 		move_ball_to_target(delta)
 		is_ball_moving_to_hit_zone = false
@@ -90,3 +91,19 @@ func joycon_rumble(side: String) -> void:
 		PlayerMovement.Gyro.joycon_rumble(0, 0xFFFF, 500)
 	else:
 		PlayerMovement.Gyro.joycon_rumble(0xFFFF, 0, 500)
+
+
+# Devuelve un mensaje en pantalla para indicar que tan bien se pateo el balon
+# Calcula la distancia entre el balon y la hit zone
+func display_message() -> void:
+	var animation = get_node("../UI/Message/MessageAnimation")
+	var final_distance = hit_zone_pos.distance_to(global_position)
+	if final_distance <= 20:
+		animation.play("great")
+		print("¡Genial! 🎯")
+	elif final_distance <= 40:
+		animation.play("good")
+		print("¡Bien! 👍")
+	else:
+		animation.play("ok")
+		print("Casi ! 😄")
