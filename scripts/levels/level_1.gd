@@ -6,14 +6,11 @@ extends Node2D
 # Balones
 @onready var BASEBALL = preload("res://assets/sports-balls/baseball.png")
 @onready var BASKETBALL = preload("res://assets/sports-balls/basketball.png")
-@onready var BOWLING = preload("res://assets/sports-balls/bowling.png")
 @onready var FOOTBALL = preload("res://assets/sports-balls/football.png")
-@onready var GOLF = preload("res://assets/sports-balls/golf.png")
-@onready var TENNIS = preload("res://assets/sports-balls/tennis.png")
 @onready var VOLLEYBALL = preload("res://assets/sports-balls/volleyball.png")
 
-@onready var Sport_balls = [BASEBALL, BASKETBALL, BOWLING, FOOTBALL, TENNIS, GOLF, VOLLEYBALL]
-	
+@onready var Sport_balls = [BASEBALL, BASKETBALL, FOOTBALL, VOLLEYBALL]
+
 @onready var moving_ball_scene = preload("res://scenes/levels/moving_ball.tscn")
 @onready var music: AudioStreamPlayer = $Music
 @onready var beatmap_file = FileAccess.open("res://assets/level-1/easy/beatmap.json", FileAccess.READ)
