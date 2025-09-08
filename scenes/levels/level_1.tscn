@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dc4635d2psirn"]
+[gd_scene load_steps=18 format=3 uid="uid://dc4635d2psirn"]
 
 [ext_resource type="Script" uid="uid://vywbr5ybqgrh" path="res://scripts/levels/level_1.gd" id="1_x42e6"]
 [ext_resource type="Texture2D" uid="uid://cs4oklwo4ncje" path="res://assets/level-1/easy/Summer7.png" id="2_6761a"]
@@ -17,6 +17,185 @@ texture = ExtResource("3_sk5k4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6761a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
+
+[sub_resource type="Animation" id="Animation_sk5k4"]
+resource_name = "great"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(602, 451), Vector2(633, 402)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["¡Genial! 🎯"]
+}
+
+[sub_resource type="Animation" id="Animation_oc4kc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_s8va5"]
+resource_name = "good"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(602, 451), Vector2(633, 402)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["¡Bien! 👍"]
+}
+
+[sub_resource type="Animation" id="Animation_dga24"]
+resource_name = "ok"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(602, 451), Vector2(633, 402)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Casi ! 😄"]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qxy0u"]
+_data = {
+&"RESET": SubResource("Animation_oc4kc"),
+&"good": SubResource("Animation_s8va5"),
+&"great": SubResource("Animation_sk5k4"),
+&"ok": SubResource("Animation_dga24")
+}
 
 [sub_resource type="Animation" id="Animation_6761a"]
 resource_name = "oulse"
@@ -116,7 +295,7 @@ offset_bottom = 168.0
 
 [node name="Sprite2D" type="Sprite2D" parent="UI/TargetLeft"]
 texture_filter = 1
-scale = Vector2(4.15033, 4.15033)
+scale = Vector2(4.07263, 4.07263)
 texture = ExtResource("4_6761a")
 
 [node name="Area2D" type="Area2D" parent="UI/TargetLeft"]
@@ -135,7 +314,7 @@ offset_bottom = 168.0
 
 [node name="Sprite2D" type="Sprite2D" parent="UI/TargetRight"]
 texture_filter = 1
-scale = Vector2(4.15033, 4.15033)
+scale = Vector2(4.07263, 4.07263)
 texture = ExtResource("4_6761a")
 
 [node name="Area2D" type="Area2D" parent="UI/TargetRight"]
@@ -144,6 +323,27 @@ position = Vector2(24, 16)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UI/TargetRight/Area2D"]
 scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_sk5k4")
+
+[node name="Message" type="Label" parent="UI"]
+visible = false
+layout_mode = 0
+offset_left = 602.0
+offset_top = 451.0
+offset_right = 694.0
+offset_bottom = 474.0
+rotation = 0.296706
+text = "Casi ! 😄"
+
+[node name="MessageAnimation" type="AnimationPlayer" parent="UI/Message"]
+libraries = {
+&"": SubResource("AnimationLibrary_qxy0u")
+}
+
+[node name="Sprite" type="Sprite2D" parent="UI"]
+texture_filter = 1
+position = Vector2(-31, 355)
+scale = Vector2(3, 3)
+hframes = 4
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_oc4kc")
