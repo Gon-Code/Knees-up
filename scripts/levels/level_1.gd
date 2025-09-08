@@ -76,7 +76,7 @@ func create_moving_ball(origin: String, ball_type: Resource) -> void:
 
 # Selecciona una pelota al azar
 func random_sport_ball() -> Resource:
-		return Sport_balls[randi() % 7]
+		return Sport_balls[randi() % 4]
 		
 func _ball_on_hit_zone(area: Area2D) -> void:
 	area.get_parent().on_hit_area = true
