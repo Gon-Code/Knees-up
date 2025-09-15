@@ -96,14 +96,14 @@ func joycon_rumble(side: String) -> void:
 # Devuelve un mensaje en pantalla para indicar que tan bien se pateo el balon
 # Calcula la distancia entre el balon y la hit zone
 func display_message() -> void:
-	var animation = get_node("../UI/Message/MessageAnimation")
+	var cat = get_node("../CatMessage")
 	var final_distance = hit_zone_pos.distance_to(global_position)
 	if final_distance <= 20:
-		animation.play("great")
+		cat.message("great")
 		print("¡Genial! 🎯")
 	elif final_distance <= 40:
-		animation.play("good")
+		cat.message("good")
 		print("¡Bien! 👍")
 	else:
-		animation.play("ok")
+		cat.message("ok")
 		print("Casi ! 😄")

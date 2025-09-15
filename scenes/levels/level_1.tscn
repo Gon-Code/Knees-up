@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dc4635d2psirn"]
+[gd_scene load_steps=19 format=3 uid="uid://dc4635d2psirn"]
 
 [ext_resource type="Script" uid="uid://vywbr5ybqgrh" path="res://scripts/levels/level_1.gd" id="1_x42e6"]
 [ext_resource type="Texture2D" uid="uid://cs4oklwo4ncje" path="res://assets/level-1/easy/Summer7.png" id="2_6761a"]
 [ext_resource type="Texture2D" uid="uid://c0xblyl5fw5je" path="res://assets/level-1/Hit Zone.png" id="3_sk5k4"]
 [ext_resource type="Texture2D" uid="uid://db2sil1mtl8vh" path="res://assets/level-1/easy/bullseye.png" id="4_6761a"]
 [ext_resource type="AudioStream" uid="uid://8h5jlvrsn44y" path="res://assets/music/level_1_easy.ogg" id="4_oc4kc"]
+[ext_resource type="PackedScene" uid="uid://01qo01k2brxh" path="res://scenes/levels/cat-message.tscn" id="6_sk5k4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gl321"]
 texture = ExtResource("2_6761a")
@@ -17,58 +18,6 @@ texture = ExtResource("3_sk5k4")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6761a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
-
-[sub_resource type="Animation" id="Animation_sk5k4"]
-resource_name = "great"
-length = 0.45
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(602, 451), Vector2(633, 402)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.45),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:text")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": ["¡Genial! 🎯"]
-}
 
 [sub_resource type="Animation" id="Animation_oc4kc"]
 length = 0.001
@@ -135,6 +84,58 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": ["¡Bien! 👍"]
+}
+
+[sub_resource type="Animation" id="Animation_sk5k4"]
+resource_name = "great"
+length = 0.45
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(602, 451), Vector2(633, 402)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["¡Genial! 🎯"]
 }
 
 [sub_resource type="Animation" id="Animation_dga24"]
@@ -352,6 +353,10 @@ stream = ExtResource("4_oc4kc")
 libraries = {
 &"": SubResource("AnimationLibrary_sk5k4")
 }
+
+[node name="CatMessage" parent="." instance=ExtResource("6_sk5k4")]
+position = Vector2(131, 436)
+scale = Vector2(0.3, 0.314)
 
 [connection signal="area_entered" from="UI/Hit-Zone/Area2D" to="." method="_ball_on_hit_zone"]
 [connection signal="area_entered" from="UI/TargetLeft/Area2D" to="." method="_ball_on_left_target"]
