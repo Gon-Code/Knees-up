@@ -32,6 +32,10 @@ window/vsync/vsync_mode=0
 
 enabled=PackedStringArray("res://addons/gut/plugin.cfg")
 
+[gui]
+
+theme/custom_font="uid://c62vb51gatlkj"
+
 [input]
 
 up={
