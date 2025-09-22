@@ -2,6 +2,7 @@ extends Node
 
 @export var accel_threshold: float = 1.2 # Umbral en m/s²
 @export var accel_treshold_stomp: float = -1.0
+@export var accel_threshold_jump: float = 1.0 
 @export var accel: Dictionary
 
 # Giroscopio
@@ -42,6 +43,24 @@ func is_stomp_detected(accel: Dictionary, leg: String) -> bool:
 		return false
 	if current_accel.z < accel_treshold_stomp:
 		print("Stomp detectado Pierna ", leg)
+	return false
+
+# Devuelve true si se detecta un salto (ambas piernas con Z por sobre el umbral)
+func is_jump_detected(accel: Dictionary) -> bool:
+	var left_values: Vector3 = accel.get("left", null)
+	var right_values: Vector3 = accel.get("right", null)
+	
+	if left_values == null or right_values == null:
+		return false
+	
+	var left_z = left_values.z   # eje Z pierna izquierda
+	var right_z = right_values.z # eje Z pierna derecha
+	
+	# Chequea si ambas superan el umbral
+	if left_z > accel_threshold_jump and right_z > accel_threshold_jump:
+		print("Salto detectado 🚀")
+		return true
+	
 	return false
 
 # Cuando se patea con la pierna izquierda utilizamos el joyCon R
