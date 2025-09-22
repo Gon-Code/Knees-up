@@ -1,6 +1,6 @@
 extends Node
 
-@export var accel_threshold: float = 1.2 # Umbral en m/s²
+@export var accel_threshold_kick: float = 0.4 # Umbral en m/s²
 @export var accel_treshold_stomp: float = -1.0
 @export var accel_threshold_jump: float = 1.0 
 @export var accel: Dictionary
@@ -25,13 +25,22 @@ func _process(delta: float) -> void:
 # Devuelve true si se detecta una patada en la pierna indicada ('left' o 'right')
 func is_kick_detected(accel: Dictionary, leg: String) -> bool:
 	leg = switch_controls(leg)
-	var values = accel.get(leg, null)
-	if values == null:
+	var current_accel = accel.get(leg, null)
+	if current_accel == null:
 		return false
-	for i in values:
-		if abs(i) > accel_threshold:
-			print("Accel %s detectada: x=%.2f, y=%.2f, z=%.2f" % [leg.capitalize(), values[0], values[1], values[2]])
+	if leg == 'right' and -current_accel.x > accel_threshold_kick and current_accel.z > accel_threshold_kick:
+			print("Accel %s detectada: x=%.2f, y=%.2f, z=%.2f" % [leg.capitalize(),
+																  current_accel[0],
+																  current_accel[1],
+																  current_accel[2]])
 			return true
+	if leg == 'left' and current_accel.x > accel_threshold_kick and current_accel.z > accel_threshold_kick:
+			print("Accel %s detectada: x=%.2f, y=%.2f, z=%.2f" % [leg.capitalize(),
+																  current_accel[0],
+																  current_accel[1],
+																  current_accel[2]])
+			return true
+	
 	return false
 
 # Devuelve true si se detecta un stomp en la pierna indicada ('left', 'right')
