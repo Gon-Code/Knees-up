@@ -1,7 +1,6 @@
 extends Node2D
 
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-
+@onready var pandas_animation: AnimationPlayer = $PandasAnimation
 
 func _ready() -> void:
-	animation_player.play("idle")
+	pandas_animation.play("idle")
