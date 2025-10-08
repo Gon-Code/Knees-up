@@ -1,63 +1,63 @@
 [
     {
         "time": 7.150,
-        "type": "tap"
+        "type": "right_tap"
     },
     {
         "time": 10.917,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
         "time": 13.284,
-        "type": "tap"
+        "type": "right_tap"
     },
     {
         "time": 16.013,
-        "type": "tap"
+        "type": "right_tap"
     },
     {
         "time": 18.737,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
         "time": 20.789,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
-        "time": 2.830,
-        "type": "tap"
+        "time": 22.830,
+        "type": "right_tap"
     },
     {
         "time": 25.555,
-        "type": "tap"
+        "type": "right_tap"
     },
     {
         "time": 28.298,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
         "time": 31.004,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
         "time": 33.745,
-        "type": "tap"
+        "type": "right_tap"
     },
     {
         "time": 37.842,
-        "type": "tap"
+        "type": "right_tap"
     },
     {
         "time": 39.862,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
         "time": 47.077,
-        "type": "tap"
+        "type": "right_tap"
     },
     {
         "time": 49.803,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
         "time": 52.884,
@@ -65,27 +65,27 @@
     },
     {
         "time": 55.251,
-        "type": "tap"
+        "type": "right_tap"
     },
     {
         "time": 59.347,
-        "type": "tap"
+        "type": "right_tap"
     },
     {
         "time": 64.095,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
         "time": 66.841,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
         "time": 69.565,
-        "type": "tap"
+        "type": "right_tap"
     },
     {
         "time": 72.973,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
         "time": 74.691,
@@ -93,43 +93,43 @@
     },
     {
         "time": 77.733,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
         "time": 79.799,
-        "type": "tap"
+        "type": "right_tap"
     },
     {
         "time": 81.854,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
         "time": 84.566,
-        "type": "tap"
+        "type": "right_tap"
     },
     {
         "time": 87.305,
-        "type": "tap"
+        "type": "right_tap"
     },
     {
         "time": 88.665,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
         "time": 90.034,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
         "time": 92.067,
-        "type": "tap"
+        "type": "right_tap"
     },
     {
         "time": 93.454,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
         "time": 94.804,
-        "type": "tap"
+        "type": "left_tap"
     },
     {
         "time": 96.140,

@@ -1,7 +1,7 @@
 [gd_scene load_steps=24 format=3 uid="uid://c781kjb3k26e4"]
 
 [ext_resource type="Texture2D" uid="uid://dov4iv5ah40lj" path="res://assets/level-2/level-2-background.png" id="1_a4ndn"]
-[ext_resource type="Script" uid="uid://b0nnr1ymqrpeq" path="res://Scripts/levels/level_2.gd" id="1_dpcxv"]
+[ext_resource type="Script" uid="uid://b0nnr1ymqrpeq" path="res://scripts/levels/level_2.gd" id="1_dpcxv"]
 [ext_resource type="Script" uid="uid://yhwph53ocw8k" path="res://scripts/levels/red_pandas.gd" id="2_5d0y8"]
 [ext_resource type="Texture2D" uid="uid://b0bp58k3twyfe" path="res://assets/level-2/panda-jump.png" id="2_tn3yb"]
 [ext_resource type="Texture2D" uid="uid://4yemxdg7i3f1" path="res://assets/level-2/panda-idle.png" id="4_6akv6"]
@@ -95,7 +95,6 @@ tracks/5/keys = {
 [sub_resource type="Animation" id="Animation_6akv6"]
 resource_name = "jump"
 length = 0.7
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -208,7 +207,6 @@ tracks/8/keys = {
 [sub_resource type="Animation" id="Animation_26p62"]
 resource_name = "left_tap"
 length = 0.8
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -309,7 +307,6 @@ tracks/7/keys = {
 [sub_resource type="Animation" id="Animation_mr0nw"]
 resource_name = "right_tap"
 length = 0.8
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -684,6 +681,7 @@ hframes = 7
 position = Vector2(283, 341)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_tn3yb")
+flip_h = true
 hframes = 7
 
 [node name="PandasAnimation" type="AnimationPlayer" parent="RedPandas"]
@@ -695,8 +693,8 @@ libraries = {
 [node name="Player" type="Sprite2D" parent="RedPandas"]
 position = Vector2(553, 365)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("6_paeld")
-hframes = 7
+texture = ExtResource("9_l8pdp")
+hframes = 4
 frame = 1
 script = ExtResource("7_6akv6")
 
