@@ -20,7 +20,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var time: float = get_current_time_playing()
 
-	while not beatmap.is_empty() and time + EPS >= beatmap.front()["time"]:
+	while not beatmap.is_empty() and time + EPS + 0.5 >= beatmap.front()["time"]:
 		var note = beatmap.pop_front()
 		animation_ready(note)
 		print(note)
