@@ -17,7 +17,7 @@ func _ready() -> void:
 	Gyro.init_joycons()
 	Gyro.joycon_auto_calibration()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	Gyro.joycon_polling()
 	# Diccionario con left / right
 	accel = Gyro.joycon_get_acceleration()
