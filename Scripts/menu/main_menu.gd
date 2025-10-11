@@ -4,7 +4,7 @@ extends Control
 # Recursos precargados (más eficiente que load())
 const OPTIONS_MUSIC: AudioStream = preload("res://assets/sfx/options.ogg")
 const MAIN_MENU_MUSIC: AudioStream = preload("res://assets/sfx/menu_principal.ogg")
-const LEVEL_1: PackedScene = preload("res://scenes/levels/level_1.tscn")
+const LEVEL_SELECTION: PackedScene = preload("res://scenes/UI/level_selection.tscn")
 const BUTTON_CLICK: AudioStream = preload("res://assets/sfx/button-1.wav")
 
 ## Funcion Ready, reproducimos la música de inicio
@@ -28,8 +28,8 @@ func _on_load_pressed() -> void:
 	AudioManager.play_sfx(BUTTON_CLICK)
 
 ## Botón Nueva Partida
-## Comienza el Level 1
+## Abre el menú de selección de Nivel
 func _on_new_pressed() -> void:
 	AudioManager.play_sfx(BUTTON_CLICK)
 	await AudioManager.sfx.finished # esperamos que termine el clic
-	get_tree().change_scene_to_packed(LEVEL_1)
+	get_tree().change_scene_to_packed(LEVEL_SELECTION)
