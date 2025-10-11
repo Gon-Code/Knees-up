@@ -23,9 +23,9 @@ func _process(_delta: float) -> void:
 	accel = Gyro.joycon_get_acceleration()
 
 # Devuelve true si se detecta una patada en la pierna indicada ('left' o 'right')
-func is_kick_detected(accel: Dictionary, leg: String) -> bool:
+func is_kick_detected(acceleration: Dictionary, leg: String) -> bool:
 	leg = switch_controls(leg)
-	var current_accel = accel.get(leg, null)
+	var current_accel = acceleration.get(leg, null)
 	if current_accel == null:
 		return false
 	if leg == 'right' and -current_accel.x > accel_threshold_kick and current_accel.z > accel_threshold_kick:
@@ -45,9 +45,9 @@ func is_kick_detected(accel: Dictionary, leg: String) -> bool:
 
 # Devuelve true si se detecta un stomp en la pierna indicada ('left', 'right')
 # Solo nos importa la aceleracion hacia abajo en el eje Z
-func is_stomp_detected(accel: Dictionary, leg: String) -> bool:
+func is_stomp_detected(acceleration: Dictionary, leg: String) -> bool:
 	var control = switch_controls(leg)
-	var current_accel: Vector3 = accel.get(control,null)
+	var current_accel: Vector3 = acceleration.get(control,null)
 	if current_accel == null:
 		return false
 	if current_accel.z < accel_treshold_stomp:
@@ -55,9 +55,9 @@ func is_stomp_detected(accel: Dictionary, leg: String) -> bool:
 	return false
 
 # Devuelve true si se detecta un salto (ambas piernas con Z por sobre el umbral)
-func is_jump_detected(accel: Dictionary) -> bool:
-	var left_values: Vector3 = accel.get("left", null)
-	var right_values: Vector3 = accel.get("right", null)
+func is_jump_detected(acceleration: Dictionary) -> bool:
+	var left_values: Vector3 = acceleration.get("left", null)
+	var right_values: Vector3 = acceleration.get("right", null)
 	
 	if left_values == null or right_values == null:
 		return false
