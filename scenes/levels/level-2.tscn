@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://c781kjb3k26e4"]
+[gd_scene load_steps=50 format=3 uid="uid://c781kjb3k26e4"]
 
 [ext_resource type="Texture2D" uid="uid://dov4iv5ah40lj" path="res://assets/level-2/level-2-background.png" id="1_a4ndn"]
 [ext_resource type="Script" uid="uid://b0nnr1ymqrpeq" path="res://scripts/levels/level_2.gd" id="1_dpcxv"]
@@ -6,19 +6,23 @@
 [ext_resource type="Texture2D" uid="uid://b0bp58k3twyfe" path="res://assets/level-2/panda-jump.png" id="2_tn3yb"]
 [ext_resource type="Texture2D" uid="uid://4yemxdg7i3f1" path="res://assets/level-2/panda-idle.png" id="4_6akv6"]
 [ext_resource type="Texture2D" uid="uid://c2neoyra1e3ti" path="res://assets/level-2/panda-tap.png" id="4_tn3yb"]
+[ext_resource type="Texture2D" uid="uid://yjlyb03smaax" path="res://assets/level-2/exclamation-mark.png" id="5_qurkn"]
 [ext_resource type="Texture2D" uid="uid://bkfnecjyphb6u" path="res://assets/level-2/main-panda-idle.png" id="6_mr0nw"]
 [ext_resource type="Texture2D" uid="uid://ckvbgu5y02sg0" path="res://assets/level-2/main-panda-jump.png" id="6_paeld"]
 [ext_resource type="Script" uid="uid://cbi0me2l2gubm" path="res://scripts/levels/player.gd" id="7_6akv6"]
 [ext_resource type="Texture2D" uid="uid://bnnkse8mm332f" path="res://assets/level-2/main-panda_tap.png" id="9_l8pdp"]
 [ext_resource type="AudioStream" uid="uid://d1vroagesuy7g" path="res://assets/music/level_2.ogg" id="10_l8pdp"]
+[ext_resource type="AudioStream" uid="uid://dbdub64imx7nq" path="res://assets/level-2/jump_sfx.wav" id="11_i3cel"]
+[ext_resource type="AudioStream" uid="uid://dvo37y7xi5f7w" path="res://assets/level-2/tap_sfx.wav" id="12_qurkn"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o6t8s"]
 texture = ExtResource("1_a4ndn")
 
 [sub_resource type="Animation" id="Animation_i3cel"]
 resource_name = "idle"
-length = 0.5
+length = 1.44
 loop_mode = 1
+step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -50,10 +54,10 @@ tracks/2/path = NodePath(".:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.4, 0.475, 0.875, 0.95, 1.025, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 2, 1, 2, 0]
+"values": [0, 2, 1, 2, 0, 2, 1, 2, 0]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -62,10 +66,10 @@ tracks/3/path = NodePath("../RedPandaLeft:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.4, 0.475, 0.875, 0.95, 1.025, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 2, 1, 2, 0]
+"values": [0, 2, 1, 2, 0, 2, 1, 2, 0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -91,10 +95,35 @@ tracks/5/keys = {
 "update": 1,
 "values": [3]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../RedPandaLeft:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(283, 341)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(804, 341)]
+}
 
 [sub_resource type="Animation" id="Animation_6akv6"]
 resource_name = "jump"
-length = 0.7
+length = 1.2
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -138,7 +167,7 @@ tracks/3/path = NodePath(".:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"times": PackedFloat32Array(0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
@@ -150,7 +179,7 @@ tracks/4/path = NodePath(".:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.33333334, 0.5, 0.6333333),
+"times": PackedFloat32Array(0.5333, 1, 1.1333),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(804, 341), Vector2(804, 327), Vector2(804, 341)]
@@ -174,7 +203,7 @@ tracks/6/path = NodePath("../RedPandaLeft:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"times": PackedFloat32Array(0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
@@ -186,10 +215,10 @@ tracks/7/path = NodePath("../RedPandaLeft:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.33333334, 0.5, 0.63200206),
+"times": PackedFloat32Array(0.5, 1, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(283, 341), Vector2(283, 327), Vector2(283, 341)]
+"values": [Vector2(283, 341), Vector2(283, 315), Vector2(283, 341)]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -206,7 +235,8 @@ tracks/8/keys = {
 
 [sub_resource type="Animation" id="Animation_26p62"]
 resource_name = "left_tap"
-length = 0.8
+length = 1.2
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -226,7 +256,7 @@ tracks/1/path = NodePath(".:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.7),
+"times": PackedFloat32Array(0.5, 0.6, 0.7, 1.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 0]
@@ -250,7 +280,7 @@ tracks/3/path = NodePath("../RedPandaLeft:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.7),
+"times": PackedFloat32Array(0.5, 0.6, 0.7, 1.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 0]
@@ -303,10 +333,35 @@ tracks/7/keys = {
 "update": 1,
 "values": [4]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(804, 341)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../RedPandaLeft:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(283, 341)]
+}
 
 [sub_resource type="Animation" id="Animation_mr0nw"]
 resource_name = "right_tap"
-length = 0.8
+length = 1.2
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -326,7 +381,7 @@ tracks/1/path = NodePath(".:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.099999994, 0.19999999, 0.7),
+"times": PackedFloat32Array(0.5, 0.6, 0.7, 1.0666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 0]
@@ -350,7 +405,7 @@ tracks/3/path = NodePath("../RedPandaLeft:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.7),
+"times": PackedFloat32Array(0.5, 0.6, 0.7, 1.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 0]
@@ -403,6 +458,30 @@ tracks/7/keys = {
 "update": 1,
 "values": [4]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../RedPandaLeft:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(283, 341)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath(".:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(804, 341)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3mlnm"]
 _data = {
@@ -412,37 +491,56 @@ _data = {
 &"right_tap": SubResource("Animation_mr0nw")
 }
 
-[sub_resource type="Animation" id="Animation_paeld"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [1]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3mlnm"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ux8lk"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ewown"]
+animation = &"left_tap"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_b618b"]
+animation = &"right_tap"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ntv44"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hhb5p"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_aqplb"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tlafw"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_u2qny"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bsn0y"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_op1nl"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_djxgc"]
+states/idle/node = SubResource("AnimationNodeAnimation_3mlnm")
+states/idle/position = Vector2(344, 100)
+states/jump/node = SubResource("AnimationNodeAnimation_ux8lk")
+states/jump/position = Vector2(518, 100)
+states/left_tap/node = SubResource("AnimationNodeAnimation_ewown")
+states/left_tap/position = Vector2(518, -89)
+states/right_tap/node = SubResource("AnimationNodeAnimation_b618b")
+states/right_tap/position = Vector2(518, 282)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ntv44"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_hhb5p"), "idle", "left_tap", SubResource("AnimationNodeStateMachineTransition_aqplb"), "idle", "right_tap", SubResource("AnimationNodeStateMachineTransition_tlafw"), "right_tap", "idle", SubResource("AnimationNodeStateMachineTransition_u2qny"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_bsn0y"), "left_tap", "idle", SubResource("AnimationNodeStateMachineTransition_op1nl")]
+graph_offset = Vector2(105, -79)
 
 [sub_resource type="Animation" id="Animation_p8qr4"]
 resource_name = "idle"
-length = 0.5
+length = 1.44
 loop_mode = 1
+step = 0.025
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -474,16 +572,64 @@ tracks/2/path = NodePath(".:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.39999998),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.075, 0.15, 0.4, 0.475, 0.875, 0.95, 1.025, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 1, 0]
+"values": [0, 1, 2, 1, 0, 1, 2, 1, 0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ExclamationMarkL:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ExclamationMarkR:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ExclamationMarkM:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath(".:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(553, 365)]
 }
 
 [sub_resource type="Animation" id="Animation_qurkn"]
 resource_name = "jump"
-length = 0.7
-step = 0.1
+length = 1.2
+step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -515,7 +661,7 @@ tracks/2/path = NodePath(".:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"times": PackedFloat32Array(0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
@@ -527,16 +673,76 @@ tracks/3/path = NodePath(".:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.3333, 0.5, 0.7),
+"times": PackedFloat32Array(0.5, 1, 1.2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(553, 365), Vector2(553, 326), Vector2(553, 365)]
+"values": [Vector2(553, 365), Vector2(553, 285), Vector2(553, 365)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ExclamationMarkM:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ExclamationMarkL:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ExclamationMarkR:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ExclamationMarkM:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.37425217, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 290), Vector2(0, 350), Vector2(0, 290)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("../JumpSoundEffect:playing")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(1.15),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_dpcxv"]
 resource_name = "left_tap"
-length = 0.8
-step = 0.1
+length = 1.2
+step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -556,7 +762,7 @@ tracks/1/path = NodePath(".:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.7),
+"times": PackedFloat32Array(0.5, 0.6, 0.7, 1.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 0]
@@ -585,10 +791,70 @@ tracks/3/keys = {
 "update": 1,
 "values": [ExtResource("9_l8pdp")]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../TapSoundEffect:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.975),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ExclamationMarkL:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ExclamationMarkR:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ExclamationMarkL:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.2, 0.2), Vector2(0.05, 0.05)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(553, 365)]
+}
 
 [sub_resource type="Animation" id="Animation_w6v73"]
 resource_name = "right_tap"
-length = 0.8
+length = 1.2
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -609,7 +875,7 @@ tracks/1/path = NodePath(".:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.7),
+"times": PackedFloat32Array(0.5, 0.6, 0.7, 1.1),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 0]
@@ -638,15 +904,121 @@ tracks/3/keys = {
 "update": 1,
 "values": [ExtResource("9_l8pdp")]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ExclamationMarkL:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ExclamationMarkR:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../TapSoundEffect:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.975),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ExclamationMarkR:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.1), Vector2(0.2, 0.2), Vector2(0.05, 0.05)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath(".:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(553, 365)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l8pdp"]
 _data = {
-&"RESET": SubResource("Animation_paeld"),
 &"idle": SubResource("Animation_p8qr4"),
 &"jump": SubResource("Animation_qurkn"),
 &"left_tap": SubResource("Animation_dpcxv"),
 &"right_tap": SubResource("Animation_w6v73")
 }
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qurkn"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_26p62"]
+animation = &"jump"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1ix62"]
+animation = &"left_tap"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_685dq"]
+animation = &"right_tap"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3mlnm"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ux8lk"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ewown"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b618b"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_66v34"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_14tv5"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ad8jv"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ntv44"]
+states/End/position = Vector2(842, 121)
+states/Start/position = Vector2(183, 109)
+states/idle/node = SubResource("AnimationNodeAnimation_qurkn")
+states/idle/position = Vector2(314, 109)
+states/jump/node = SubResource("AnimationNodeAnimation_26p62")
+states/jump/position = Vector2(527, 109)
+states/left_tap/node = SubResource("AnimationNodeAnimation_1ix62")
+states/left_tap/position = Vector2(518, -100)
+states/right_tap/node = SubResource("AnimationNodeAnimation_685dq")
+states/right_tap/position = Vector2(518, 274)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_3mlnm"), "right_tap", "idle", SubResource("AnimationNodeStateMachineTransition_ux8lk"), "left_tap", "idle", SubResource("AnimationNodeStateMachineTransition_ewown"), "jump", "idle", SubResource("AnimationNodeStateMachineTransition_b618b"), "idle", "left_tap", SubResource("AnimationNodeStateMachineTransition_66v34"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_14tv5"), "idle", "right_tap", SubResource("AnimationNodeStateMachineTransition_ad8jv")]
+graph_offset = Vector2(110.33992, -31.486694)
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_dpcxv")
@@ -671,17 +1043,16 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_o6t8s")
 [node name="RedPandas" type="Node2D" parent="."]
 script = ExtResource("2_5d0y8")
 
-[node name="RedPandaRight" type="Sprite2D" parent="RedPandas"]
-position = Vector2(804, 341)
-scale = Vector2(0.5, 0.5)
+[node name="RedPandaLeft" type="Sprite2D" parent="RedPandas"]
+position = Vector2(283, 341)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("2_tn3yb")
 hframes = 7
 
-[node name="RedPandaLeft" type="Sprite2D" parent="RedPandas"]
-position = Vector2(283, 341)
-scale = Vector2(0.5, 0.5)
+[node name="RedPandaRight" type="Sprite2D" parent="RedPandas"]
+position = Vector2(804, 341)
+scale = Vector2(0.45, 0.45)
 texture = ExtResource("2_tn3yb")
-flip_h = true
 hframes = 7
 
 [node name="PandasAnimation" type="AnimationPlayer" parent="RedPandas"]
@@ -690,18 +1061,56 @@ libraries = {
 &"": SubResource("AnimationLibrary_3mlnm")
 }
 
+[node name="PandasTree" type="AnimationTree" parent="RedPandas"]
+active = false
+root_node = NodePath("../RedPandaRight")
+tree_root = SubResource("AnimationNodeStateMachine_djxgc")
+anim_player = NodePath("../PandasAnimation")
+
 [node name="Player" type="Sprite2D" parent="RedPandas"]
 position = Vector2(553, 365)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_l8pdp")
-hframes = 4
-frame = 1
+texture = ExtResource("6_mr0nw")
+hframes = 3
 script = ExtResource("7_6akv6")
 
+[node name="ExclamationMarkL" type="Sprite2D" parent="RedPandas/Player"]
+visible = false
+position = Vector2(-162, 182)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_qurkn")
+
+[node name="ExclamationMarkR" type="Sprite2D" parent="RedPandas/Player"]
+visible = false
+position = Vector2(148, 182)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("5_qurkn")
+
+[node name="ExclamationMarkM" type="Sprite2D" parent="RedPandas/Player"]
+visible = false
+position = Vector2(0, 290)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("5_qurkn")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RedPandas/Player"]
+callback_mode_discrete = 0
 libraries = {
 &"": SubResource("AnimationLibrary_l8pdp")
 }
+
+[node name="PlayerAnimationTree" type="AnimationTree" parent="RedPandas/Player"]
+active = false
+callback_mode_discrete = 1
+tree_root = SubResource("AnimationNodeStateMachine_ntv44")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="JumpSoundEffect" type="AudioStreamPlayer" parent="RedPandas"]
+stream = ExtResource("11_i3cel")
+volume_db = 10.0
+
+[node name="TapSoundEffect" type="AudioStreamPlayer" parent="RedPandas"]
+stream = ExtResource("12_qurkn")
+volume_db = 10.0
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_l8pdp")
