@@ -1258,6 +1258,7 @@ volume_db = 10.0
 [node name="MusicalRainEffect" type="CPUParticles2D" parent="."]
 position = Vector2(748, 114.00003)
 scale = Vector2(0.99999994, 0.99999994)
+emitting = false
 amount = 3
 texture = ExtResource("6_3mlnm")
 lifetime = 4.0
