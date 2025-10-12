@@ -3,6 +3,10 @@ extends Node2D
 @onready var beatmap_file = FileAccess.open("res://assets/level-2/beatmap.json", FileAccess.READ)
 @onready var music: AudioStreamPlayer = $Music
 @onready var red_pandas: Node2D = $RedPandas
+@onready var shining_effect: CPUParticles2D = $UI/MirrorBall/ShiningEffect
+@onready var speakers_animation: AnimationPlayer = $UI/Speakers/SpeakersAnimation
+@onready var ball_animation: AnimationPlayer = $UI/MirrorBall/BallAnimation
+
 
 var beatmap = []
 const EPS := 0.5  # pequeña tolerancia para jitter
@@ -16,6 +20,8 @@ func _ready() -> void:
 		
 	# Starts the Music !
 	music.play()
+	speakers_animation.play("idle")
+	ball_animation.play("show_ball")
 
 func _process(_delta: float) -> void:
 	var time: float = get_current_time_playing()
