@@ -1,0 +1,60 @@
+name: Build and Release Windows Executable
+
+on:
+  push:
+    branches:
+      - master
+
+
+jobs:
+  build-windows:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+    - name: 🐙 Checkout repository
+      uses: actions/checkout@v4
+
+    - uses: chickensoft-games/setup-godot@v2
+      name: 🤖 Setup Godot
+      with:
+        version: 4.5.0
+        include-templates: true
+
+    - name: 🎮 Install SDL2
+      run: |
+        sudo apt-get update && sudo apt-get install -y libsdl2-2.0-0
+    
+    - name: 🪟 Export for Windows
+      run: |
+        mkdir -p builds/windows
+        godot --headless --export-release "Windows Desktop" builds/windows/knees-up.exe
+
+    - name: 📦 Add extra DLL
+      run: |
+        cp addons/godot-sdl-gyro/libsdlgyro.windows.template_release.x86_64.dll builds/windows/
+
+    - name: 📚 Archive Windows build
+      run: |
+        cd builds/windows
+        zip -r ../../Knees-up-windows.zip ../../knees-up.exe libsdlgyro.windows.template_release.x86_64.dll
+        cd ../..
+
+    - name: 🏷️ Generate and Push Git Tag
+      id: generate_tag
+      run: |
+        COMMIT_COUNT=$(git rev-list --count HEAD)
+        NEW_TAG="v1.0.${COMMIT_COUNT}"
+        git tag $NEW_TAG
+        git push origin $NEW_TAG
+        echo "tag_name=$NEW_TAG" >> $GITHUB_OUTPUT
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: knees-up-windows.zip
+        tag_name: ${{ steps.generate_tag.outputs.tag_name }} 
+        name: ${{ steps.generate_tag.outputs.tag_name }}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
