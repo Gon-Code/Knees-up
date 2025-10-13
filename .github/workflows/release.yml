@@ -21,9 +21,16 @@ jobs:
         version: 4.5.0
         include-templates: true
 
-    - name: Export for Windows
+    - name: Copy GDExtension DLL to build folder
       run: |
         mkdir -p builds/windows
+        # La ruta del DLL es relativa a la raíz del repositorio
+        cp addons/godot-sdl-gyro/sdlgyro.windows.template_release.x86_64.dll builds/windows/
+
+    - name: Export for Windows
+      run: |
+        # Godot exporta el .exe y, si es PCK embebido, el pck dentro del exe.
+        # El .dll ya está en la carpeta gracias al paso anterior.
         godot --headless --export-release "Windows Desktop" "builds/windows/Knees-up.exe"
 
     - name: Archive Windows build
