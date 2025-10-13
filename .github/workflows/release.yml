@@ -1,0 +1,37 @@
+name: Build and Release Windows Executable
+
+on:
+  schedule:
+    - cron: '0 15 * * *'
+  push:
+    branches:
+      - '**'
+
+jobs:
+  build-windows:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Godot
+      uses: firebelley/setup-godot@v2.1.0
+      with:
+        godot-version: 4.5
+        export-templates: true
+
+    - name: Export for Windows
+      run: |
+        mkdir -p builds/windows
+        godot --headless --export-release "Windows Desktop" "builds/windows/Knees-up.exe"
+
+    - name: Archive Windows build
+      run: zip -r Knees-up-windows.zip builds/windows/
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: Knees-up-windows.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
