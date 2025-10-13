@@ -15,11 +15,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Setup Godot
-      uses: firebelley/setup-godot@v2.1.0
-      with:
-        godot-version: 4.5
-        export-templates: true
+- uses: chickensoft-games/setup-godot@v2
+  name: 🤖 Setup Godot
+  with:
+    version: 4.5.0
+    include-templates: true
 
     - name: Export for Windows
       run: |
