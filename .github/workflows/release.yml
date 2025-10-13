@@ -25,7 +25,7 @@ jobs:
       run: |
         mkdir -p builds/windows
         # La ruta del DLL es relativa a la raíz del repositorio
-        cp addons/godot-sdl-gyro/sdlgyro.windows.template_release.x86_64.dll builds/windows/
+        cp addons/godot-sdl-gyro/libsdlgyro.windows.template_release.x86_64.dll builds/windows/
 
     - name: Export for Windows
       run: |
