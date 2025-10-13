@@ -25,7 +25,7 @@ func update_combo() -> void:
 	if correct_hits > 1 :
 		contador.text = str(correct_hits)
 		combo_counter.visible = true
-		combo_animation.play("update_combo")
+		combo_animation.play("update_combo",)
 	
 # Esconde el Combo Counter
 func hide_combo() -> void:
