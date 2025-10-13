@@ -1,0 +1,14 @@
+AnimationTree
+Node2D
+Sprite2D
+AnimationPlayer
+Label
+CPUParticles2D
+GPUParticles2D
+RichTextLabel
+Button
+Panel
+AudioStreamPlayer
+Control
+AnimatedSprite2D
+CollisionShape2D
