@@ -1,18 +1,19 @@
 name: Build and Release Windows Executable
 
 on:
-  schedule:
-    - cron: '0 15 * * *'
   push:
     branches:
-      - '**'
+      - master
+
 
 jobs:
   build-windows:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
     steps:
-    - name: Checkout repository
+    - name: 🐙 Checkout repository
       uses: actions/checkout@v4
 
     - uses: chickensoft-games/setup-godot@v2
@@ -21,17 +22,39 @@ jobs:
         version: 4.5.0
         include-templates: true
 
-    - name: Export for Windows
+    - name: 🎮 Install SDL2
       run: |
-        # Godot exporta el .exe y, si es PCK embebido, el pck dentro del exe.
-        godot --headless --export-release "Windows Desktop" "builds/windows/Knees-up.exe"
+        sudo apt-get update && sudo apt-get install -y libsdl2-2.0-0
+    
+    - name: 🪟 Export for Windows
+      run: |
+        mkdir -p builds/windows
+        godot --headless --export-release "Windows Desktop" builds/windows/knees-up.exe
 
-    - name: Archive Windows build
-      run: zip -r Knees-up-windows.zip builds/windows/
+    - name: 📦 Add extra DLL
+      run: |
+        cp addons/godot-sdl-gyro/libsdlgyro.windows.template_release.x86_64.dll builds/windows/
+
+    - name: 📚 Archive Windows build
+      run: |
+        cd builds/windows
+        zip -r ../../Knees-up-windows.zip ../../knees-up.exe libsdlgyro.windows.template_release.x86_64.dll
+        cd ../..
+
+    - name: 🏷️ Generate and Push Git Tag
+      id: generate_tag
+      run: |
+        COMMIT_COUNT=$(git rev-list --count HEAD)
+        NEW_TAG="v1.0.${COMMIT_COUNT}"
+        git tag $NEW_TAG
+        git push origin $NEW_TAG
+        echo "tag_name=$NEW_TAG" >> $GITHUB_OUTPUT
 
     - name: Create GitHub Release
       uses: softprops/action-gh-release@v2
       with:
-        files: Knees-up-windows.zip
+        files: knees-up-windows.zip
+        tag_name: ${{ steps.generate_tag.outputs.tag_name }} 
+        name: ${{ steps.generate_tag.outputs.tag_name }}
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
