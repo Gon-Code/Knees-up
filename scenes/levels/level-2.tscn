@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://c781kjb3k26e4"]
+[gd_scene load_steps=64 format=3 uid="uid://c781kjb3k26e4"]
 
 [ext_resource type="Texture2D" uid="uid://dov4iv5ah40lj" path="res://assets/level-2/level-2-background.png" id="1_a4ndn"]
 [ext_resource type="Script" uid="uid://b0nnr1ymqrpeq" path="res://scripts/levels/level_2.gd" id="1_dpcxv"]
@@ -19,6 +19,8 @@
 [ext_resource type="AudioStream" uid="uid://dvo37y7xi5f7w" path="res://assets/level-2/tap_sfx.wav" id="12_qurkn"]
 [ext_resource type="Texture2D" uid="uid://8nle1v6omu7l" path="res://assets/level-2/cue-level-2-jump-Sheet.png" id="14_ux8lk"]
 [ext_resource type="Texture2D" uid="uid://0nysecxb4lp" path="res://assets/level-2/cue-level-2.png" id="15_ewown"]
+[ext_resource type="AudioStream" uid="uid://tdsvn6ce564h" path="res://assets/level-2/kick-drum.wav" id="18_b618b"]
+[ext_resource type="AudioStream" uid="uid://bcft7mmkng50x" path="res://assets/level-2/hi-hat.wav" id="19_66v34"]
 [ext_resource type="PackedScene" uid="uid://capgu4jtuhoov" path="res://scenes/combo_counter.tscn" id="19_ux8lk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ix62"]
@@ -264,7 +266,7 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_6akv6"]
 resource_name = "jump"
-length = 1.2
+length = 1.9
 step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -309,7 +311,7 @@ tracks/3/path = NodePath(".:frame")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"times": PackedFloat32Array(1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
@@ -321,7 +323,7 @@ tracks/4/path = NodePath(".:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.5333, 1, 1.1333),
+"times": PackedFloat32Array(1.2, 1.6, 1.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(804, 341), Vector2(804, 327), Vector2(804, 341)]
@@ -345,7 +347,7 @@ tracks/6/path = NodePath("../RedPandaLeft:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"times": PackedFloat32Array(1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
@@ -357,7 +359,7 @@ tracks/7/path = NodePath("../RedPandaLeft:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.5, 1, 1.2),
+"times": PackedFloat32Array(1.2, 1.6, 1.8),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(283, 341), Vector2(283, 315), Vector2(283, 341)]
@@ -839,9 +841,29 @@ tracks/8/path = NodePath("../JumpSoundEffect")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(1.3),
+"times": PackedFloat32Array(1),
 "transitions": PackedFloat32Array(1),
 "values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/9/type = "method"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("../PreJumpEffect")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
 "args": [0.0],
 "method": &"play"
 }]
@@ -966,6 +988,26 @@ tracks/9/path = NodePath("../TapSoundEffect")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../KickSoundEffect")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
 "times": PackedFloat32Array(0.95),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -1093,6 +1135,26 @@ tracks/9/path = NodePath("../TapSoundEffect")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.35, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}, {
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("../KickSoundEffect")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
 "times": PackedFloat32Array(0.95),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -1274,9 +1336,8 @@ anim_player = NodePath("../PandasAnimation")
 [node name="Player" type="Sprite2D" parent="RedPandas"]
 position = Vector2(553, 365)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_l8pdp")
-flip_h = true
-hframes = 4
+texture = ExtResource("6_paeld")
+hframes = 7
 script = ExtResource("7_6akv6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RedPandas/Player"]
@@ -1290,13 +1351,11 @@ tree_root = SubResource("AnimationNodeStateMachine_ntv44")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="Cue" type="Sprite2D" parent="RedPandas/Player"]
-visible = false
 texture_filter = 1
-position = Vector2(180, 150)
+position = Vector2(-10, 284)
 scale = Vector2(3, 3)
-texture = ExtResource("15_ewown")
+texture = ExtResource("14_ux8lk")
 hframes = 4
-frame = 3
 
 [node name="JumpSoundEffect" type="AudioStreamPlayer" parent="RedPandas"]
 stream = ExtResource("11_i3cel")
@@ -1304,6 +1363,12 @@ volume_db = 10.0
 
 [node name="TapSoundEffect" type="AudioStreamPlayer" parent="RedPandas"]
 stream = ExtResource("12_qurkn")
+
+[node name="KickSoundEffect" type="AudioStreamPlayer" parent="RedPandas"]
+stream = ExtResource("18_b618b")
+
+[node name="PreJumpEffect" type="AudioStreamPlayer" parent="RedPandas"]
+stream = ExtResource("19_66v34")
 volume_db = 10.0
 
 [node name="MusicalRainEffect" type="CPUParticles2D" parent="."]
