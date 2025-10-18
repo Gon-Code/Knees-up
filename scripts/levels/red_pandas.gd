@@ -14,7 +14,7 @@ func _ready() -> void:
 # Despacha la animacion indicada en los 3 pandas
 # Recibe un string, el cual indica la animacion
 func play(animation: String) -> void:
-	print("debug")
+	print("method play")
 	match animation:
 		"left_tap":
 			play_left_tap()
@@ -26,12 +26,14 @@ func play(animation: String) -> void:
 # Reproduce la animacion left_tap en los 3 pandas
 func play_left_tap() -> void:
 	pandas_state_machine.travel("left_tap")
-	player_state_machine.travel("left_tap")
+	if player_state_machine.get_current_node() != "left_tap":
+		player_state_machine.travel("left_tap")
 
 # Reproduce la animacion right_tap en los 3 pandas
 func play_right_tap() -> void:
 	pandas_state_machine.travel("right_tap")
-	player_state_machine.travel("right_tap")
+	if player_state_machine.get_current_node() != "right_tap":
+		player_state_machine.travel("right_tap")
 
 # Reproduce la animacion jump en los 3 pandas
 func play_jump() -> void:

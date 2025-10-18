@@ -5,3 +5,6 @@
 
 # Archivos .import carpeta docs
 docs/*.import
+
+# Archivos asesprite
+*.asesprite
