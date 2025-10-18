@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://capgu4jtuhoov"]
+[gd_scene load_steps=9 format=3 uid="uid://capgu4jtuhoov"]
 
 [ext_resource type="Script" uid="uid://54s4a75gvg61" path="res://scripts/combo_counter.gd" id="1_kj8em"]
 [ext_resource type="Texture2D" uid="uid://bldxkiyler51t" path="res://assets/level-2/spark-particle.png" id="2_kk72p"]
+[ext_resource type="Texture2D" uid="uid://h64qifnx56v6" path="res://assets/level-2/musical-note.png" id="2_r4mur"]
 [ext_resource type="Texture2D" uid="uid://bxg3p7o11jgkt" path="res://assets/level-2/musical-note-2-oulined.png" id="3_4l4oi"]
 [ext_resource type="Texture2D" uid="uid://dbs8r8ht0rmae" path="res://assets/level-2/musical-note-outlined.png" id="4_r4mur"]
 
@@ -83,16 +84,28 @@ _data = {
 script = ExtResource("1_kj8em")
 Debug = true
 
+[node name="MusicalRainEffect" type="CPUParticles2D" parent="."]
+position = Vector2(25, -50)
+scale = Vector2(1.5, 1)
+emitting = false
+amount = 3
+texture = ExtResource("2_r4mur")
+lifetime = 4.0
+emission_shape = 3
+emission_rect_extents = Vector2(350, 100)
+gravity = Vector2(40, 20)
+
 [node name="Counter" type="Label" parent="."]
-offset_left = -8.0
-offset_right = 36.0
+offset_left = 3.0
+offset_right = 83.0
 offset_bottom = 80.0
+size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0.0627451, 0.52156866, 0.8, 1)
 theme_override_colors/font_shadow_color = Color(0.050980393, 0.015686275, 0.20784314, 1)
 theme_override_constants/shadow_outline_size = 12
 theme_override_font_sizes/font_size = 60
 text = "0"
-horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ComboText" type="Label" parent="."]
 offset_left = -28.0

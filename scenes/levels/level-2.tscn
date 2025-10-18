@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://c781kjb3k26e4"]
+[gd_scene load_steps=63 format=3 uid="uid://c781kjb3k26e4"]
 
 [ext_resource type="Texture2D" uid="uid://dov4iv5ah40lj" path="res://assets/level-2/level-2-background.png" id="1_a4ndn"]
 [ext_resource type="Script" uid="uid://b0nnr1ymqrpeq" path="res://scripts/levels/level_2.gd" id="1_dpcxv"]
@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cfywxpaymteul" path="res://assets/UI/icono-level-2.png" id="4_685dq"]
 [ext_resource type="Texture2D" uid="uid://c2neoyra1e3ti" path="res://assets/level-2/panda-tap.png" id="4_tn3yb"]
 [ext_resource type="Texture2D" uid="uid://bldxkiyler51t" path="res://assets/level-2/spark-particle.png" id="5_3mlnm"]
-[ext_resource type="Texture2D" uid="uid://h64qifnx56v6" path="res://assets/level-2/musical-note.png" id="6_3mlnm"]
 [ext_resource type="Texture2D" uid="uid://bkfnecjyphb6u" path="res://assets/level-2/main-panda-idle.png" id="6_mr0nw"]
 [ext_resource type="Texture2D" uid="uid://ckvbgu5y02sg0" path="res://assets/level-2/main-panda-jump.png" id="6_paeld"]
 [ext_resource type="Script" uid="uid://cbi0me2l2gubm" path="res://scripts/levels/player.gd" id="7_6akv6"]
@@ -1371,19 +1370,8 @@ stream = ExtResource("18_b618b")
 stream = ExtResource("19_66v34")
 volume_db = 10.0
 
-[node name="MusicalRainEffect" type="CPUParticles2D" parent="."]
-position = Vector2(748, 114.00003)
-scale = Vector2(0.99999994, 0.99999994)
-emitting = false
-amount = 3
-texture = ExtResource("6_3mlnm")
-lifetime = 4.0
-emission_shape = 3
-emission_rect_extents = Vector2(350, 100)
-gravity = Vector2(40, 40)
-
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_l8pdp")
 
 [node name="ComboCounter" parent="." instance=ExtResource("19_ux8lk")]
-position = Vector2(579, 64)
+position = Vector2(568, 55)
