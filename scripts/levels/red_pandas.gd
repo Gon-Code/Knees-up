@@ -14,7 +14,6 @@ func _ready() -> void:
 # Despacha la animacion indicada en los 3 pandas
 # Recibe un string, el cual indica la animacion
 func play(animation: String) -> void:
-	print("method play")
 	match animation:
 		"left_tap":
 			play_left_tap()
