@@ -51,7 +51,8 @@ func is_stomp_detected(leg: String) -> bool:
 	if current_accel == null:
 		return false
 	if current_accel.z < accel_treshold_stomp:
-		print("Stomp detectado Pierna ", leg)
+		print("Stomp detectado Pierna 💥 ", leg)
+		return true
 	return false
 
 # Devuelve true si se detecta un salto (ambas piernas con Z por sobre el umbral)
