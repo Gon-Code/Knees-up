@@ -45,19 +45,20 @@ func is_kick_detected(acceleration: Dictionary, leg: String) -> bool:
 
 # Devuelve true si se detecta un stomp en la pierna indicada ('left', 'right')
 # Solo nos importa la aceleracion hacia abajo en el eje Z
-func is_stomp_detected(acceleration: Dictionary, leg: String) -> bool:
+func is_stomp_detected(leg: String) -> bool:
 	var control = switch_controls(leg)
-	var current_accel: Vector3 = acceleration.get(control,null)
+	var current_accel: Vector3 = accel.get(control,null)
 	if current_accel == null:
 		return false
 	if current_accel.z < accel_treshold_stomp:
-		print("Stomp detectado Pierna ", leg)
+		print("Stomp detectado Pierna 💥 ", leg)
+		return true
 	return false
 
 # Devuelve true si se detecta un salto (ambas piernas con Z por sobre el umbral)
-func is_jump_detected(acceleration: Dictionary) -> bool:
-	var left_values: Vector3 = acceleration.get("left", null)
-	var right_values: Vector3 = acceleration.get("right", null)
+func is_jump_detected() -> bool:
+	var left_values: Vector3 = accel.get("left", null)
+	var right_values: Vector3 = accel.get("right", null)
 	
 	if left_values == null or right_values == null:
 		return false

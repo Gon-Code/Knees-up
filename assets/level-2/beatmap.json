@@ -1,138 +1,203 @@
 [
     {
         "time": 7.150,
-        "type": "right_tap"
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
     },
     {
         "time": 10.917,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 13.284,
-        "type": "right_tap"
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
     },
     {
         "time": 16.013,
-        "type": "right_tap"
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
     },
     {
         "time": 18.737,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 20.789,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 22.830,
-        "type": "right_tap"
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
     },
     {
         "time": 25.555,
-        "type": "right_tap"
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
     },
     {
         "time": 28.298,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 31.004,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 33.745,
-        "type": "right_tap"
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
     },
     {
         "time": 37.842,
-        "type": "right_tap"
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
     },
     {
         "time": 39.862,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 47.077,
-        "type": "right_tap"
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
     },
     {
         "time": 49.803,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 52.884,
-        "type": "jump"
+        "type": "jump",
+        "action": "jump"
     },
     {
         "time": 55.251,
-        "type": "right_tap"
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
     },
     {
         "time": 59.347,
-        "type": "right_tap"
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
     },
     {
         "time": 64.095,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 66.841,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 69.565,
-        "type": "right_tap"
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
     },
     {
         "time": 72.973,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 74.691,
-        "type": "jump"
+        "type": "jump",
+        "action": "jump"
     },
     {
         "time": 77.733,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 79.799,
-        "type": "right_tap"
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
     },
     {
         "time": 81.854,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 84.566,
-        "type": "right_tap"
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
     },
     {
         "time": 87.305,
-        "type": "right_tap"
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
     },
     {
         "time": 88.665,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 90.034,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 92.067,
-        "type": "right_tap"
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
     },
     {
         "time": 93.454,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 94.804,
-        "type": "left_tap"
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
     },
     {
         "time": 96.140,
-        "type": "jump"
+        "type": "jump",
+        "action": "jump"
     }
 ]
