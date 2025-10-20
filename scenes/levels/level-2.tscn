@@ -1310,14 +1310,12 @@ script = ExtResource("2_5d0y8")
 position = Vector2(283, 341)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("4_tn3yb")
-flip_h = true
 hframes = 4
 
 [node name="RedPandaRight" type="Sprite2D" parent="RedPandas"]
 position = Vector2(804, 341)
 scale = Vector2(0.45, 0.45)
 texture = ExtResource("4_tn3yb")
-flip_h = true
 hframes = 4
 
 [node name="PandasAnimation" type="AnimationPlayer" parent="RedPandas"]

@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 # Aumenta el contador de Combo
 func update_combo() -> void:
 	correct_hits += 1
-	if correct_hits > 1 :
+	if correct_hits >= 1 :
 		contador.text = str(correct_hits)
 		combo_counter.visible = true
 		combo_animation.play("update_combo",)
@@ -36,6 +36,7 @@ func update_combo() -> void:
 func hide_combo() -> void:
 	correct_hits = 0
 	combo_counter.visible = false
+	contador.position = Vector2(3.0,0.0)
 	hide_musical_rain_effect()
 
 
