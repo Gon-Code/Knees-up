@@ -1,16 +1,18 @@
 extends Control
 
+@export var DEBUG : bool = false
 @onready var vinil_animation: AnimationPlayer = $VinilAnimation
-@onready var effects_animation: AnimationPlayer = $Effects/EffectsAnimation
+@onready var effects_animation: AnimationPlayer = $EffectsAnimation
 @onready var score_label: Label = $Score
 @onready var score: int = 0
+@onready var effects: Node2D = $Effects
 
 func _ready() -> void:
 	vinil_animation.play('move_vinilo')
-
+	effects.visible = false
 
 func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("right"):
+	if DEBUG and Input.is_action_just_pressed("right"):
 		update_score()
 	
 
