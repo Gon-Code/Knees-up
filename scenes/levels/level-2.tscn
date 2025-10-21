@@ -1,10 +1,11 @@
-[gd_scene load_steps=63 format=3 uid="uid://c781kjb3k26e4"]
+[gd_scene load_steps=64 format=3 uid="uid://c781kjb3k26e4"]
 
 [ext_resource type="Texture2D" uid="uid://dov4iv5ah40lj" path="res://assets/level-2/level-2-background.png" id="1_a4ndn"]
 [ext_resource type="Script" uid="uid://b0nnr1ymqrpeq" path="res://scripts/levels/level_2.gd" id="1_dpcxv"]
 [ext_resource type="Script" uid="uid://yhwph53ocw8k" path="res://scripts/levels/red_pandas.gd" id="2_5d0y8"]
 [ext_resource type="Texture2D" uid="uid://b0bp58k3twyfe" path="res://assets/level-2/panda-jump.png" id="2_tn3yb"]
 [ext_resource type="Texture2D" uid="uid://bneemnhiy6wa5" path="res://assets/level-2/parlante.png" id="3_26p62"]
+[ext_resource type="PackedScene" uid="uid://bv473ch107qjb" path="res://scenes/UI/level_progress.tscn" id="3_66v34"]
 [ext_resource type="Texture2D" uid="uid://4yemxdg7i3f1" path="res://assets/level-2/panda-idle.png" id="4_6akv6"]
 [ext_resource type="Texture2D" uid="uid://cfywxpaymteul" path="res://assets/UI/icono-level-2.png" id="4_685dq"]
 [ext_resource type="Texture2D" uid="uid://c2neoyra1e3ti" path="res://assets/level-2/panda-tap.png" id="4_tn3yb"]
@@ -1301,6 +1302,12 @@ root_node = NodePath("../MirrorBallLeft")
 libraries = {
 &"": SubResource("AnimationLibrary_ewown")
 }
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+
+[node name="LevelProgress" parent="UI/CanvasLayer" instance=ExtResource("3_66v34")]
+offset_top = -24.0
+offset_bottom = -24.0
 
 [node name="RedPandas" type="Node2D" parent="."]
 position = Vector2(40, 31)

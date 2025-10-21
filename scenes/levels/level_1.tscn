@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://dc4635d2psirn"]
+[gd_scene load_steps=20 format=3 uid="uid://dc4635d2psirn"]
 
 [ext_resource type="Script" uid="uid://vywbr5ybqgrh" path="res://scripts/levels/level_1.gd" id="1_x42e6"]
 [ext_resource type="Texture2D" uid="uid://cs4oklwo4ncje" path="res://assets/level-1/easy/Summer7.png" id="2_6761a"]
 [ext_resource type="Texture2D" uid="uid://c0xblyl5fw5je" path="res://assets/level-1/Hit Zone.png" id="3_sk5k4"]
 [ext_resource type="Texture2D" uid="uid://db2sil1mtl8vh" path="res://assets/level-1/easy/bullseye.png" id="4_6761a"]
 [ext_resource type="AudioStream" uid="uid://8h5jlvrsn44y" path="res://assets/music/level_1_easy.ogg" id="4_oc4kc"]
+[ext_resource type="PackedScene" uid="uid://bv473ch107qjb" path="res://scenes/UI/level_progress.tscn" id="5_oc4kc"]
 [ext_resource type="PackedScene" uid="uid://01qo01k2brxh" path="res://scenes/levels/cat-message.tscn" id="6_sk5k4"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gl321"]
@@ -346,6 +347,10 @@ position = Vector2(-31, 355)
 scale = Vector2(3, 3)
 hframes = 4
 
+[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+
+[node name="LevelProgress" parent="UI/CanvasLayer" instance=ExtResource("5_oc4kc")]
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_oc4kc")
 
@@ -357,6 +362,8 @@ libraries = {
 [node name="CatMessage" parent="." instance=ExtResource("6_sk5k4")]
 position = Vector2(131, 436)
 scale = Vector2(0.3, 0.314)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [connection signal="area_entered" from="UI/Hit-Zone/Area2D" to="." method="_ball_on_hit_zone"]
 [connection signal="area_entered" from="UI/TargetLeft/Area2D" to="." method="_ball_on_left_target"]

@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv473ch107qjb"]
+
+[ext_resource type="Script" uid="uid://dw3tvreg6wv62" path="res://scripts/level_progress.gd" id="1_nvf3u"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nvf3u"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k484x"]
+bg_color = Color(0.6908122, 0.36823672, 0.14433631, 1)
+
+[node name="LevelProgress" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = -23.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_nvf3u")
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -10.0
+offset_right = 250.0
+offset_bottom = 10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_nvf3u")
+theme_override_styles/fill = SubResource("StyleBoxFlat_k484x")
+step = 0.001
+show_percentage = false
