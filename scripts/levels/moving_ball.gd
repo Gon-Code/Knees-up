@@ -1,5 +1,8 @@
 extends Sprite2D
 
+
+@onready var combo_counter: Node2D = $"../UI/CanvasLayer/ComboCounter"
+@onready var hit_counter: Control = $"../UI/CanvasLayer/HitCounter"
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @export var speed_to_hit_zone: float = 400.0
@@ -13,12 +16,15 @@ extends Sprite2D
 # Posiciones inicial y final
 const initial_pos_left = Vector2(-66.0,511.0)
 const initial_pos_right = Vector2(1200.0,511.0)
-const final_pos_left = Vector2(128.0,128.0)
-const final_pos_right = Vector2(1024.0, 128.0)
+const final_pos_left = Vector2(128.0,190.0)
+const final_pos_right = Vector2(1024.0, 190.0)
 
 # Tiempre entre punto inicial y la hit zone
 const travel_time: float = 1.5 # segundos, desde la izq se demora .3 seg mas que de la derecha
 const hit_zone_pos = Vector2(576.0, 511.0)
+
+const hit_zone_pos_left = Vector2(376.0, 511.0)
+const hit_zone_pos_right = Vector2(776.0, 511.0)
 
 # Si se esta moviendo hacia el target, no la hit zone
 var is_ball_moving_to_target: bool = false
@@ -41,22 +47,25 @@ func _process(delta: float) -> void:
 
 	if on_hit_area and not hit_the_beat and (PlayerMovement.is_kick_detected(PlayerMovement.accel, origin) or Input.is_action_just_pressed("up")):
 		display_message()
+		combo_counter.update_combo()
+		hit_counter.update_score()
 		audio_stream_player.play()
 		move_ball_to_target(delta)
 		is_ball_moving_to_hit_zone = false
 		is_ball_moving_to_target = true
 		hit_the_beat = true
-
+	
 	if is_ball_moving_to_target:
 		move_ball_to_target(delta)
 	
-	if on_target_area:
+	if kick_missed():
+		print("Kick Missed")
+		combo_counter.hide_combo()
 		queue_free()
-	
-	# Calcular tiempo de viaje	
-	#if position.x > 576.0 and not $Timer.is_stopped():
-	#	print($Timer.wait_time - $Timer.time_left)
-	#	$Timer.stop()
+
+	if on_target_area:
+		print("On target area !")
+		queue_free()
 
 # Seteamos initial position e imagen de la bola
 func setup(side: String, ball_type: Resource) -> void:
@@ -74,7 +83,12 @@ func setup_ball_texture(ball_type: Resource) -> void:
 	texture = ball_type
 
 func move_ball_to_hit_zone(delta: float) -> void:
-	position = position.move_toward(hit_zone_pos, speed_to_hit_zone*delta)
+	if origin == 'left':
+		position = position.move_toward(hit_zone_pos_right, speed_to_hit_zone*delta)
+	if origin == 'right':
+		position = position.move_toward(hit_zone_pos_left, speed_to_hit_zone*delta)
+	
+	#position = position.move_toward(hit_zone_pos, speed_to_hit_zone*delta)
 
 func move_ball_to_target(delta: float) -> void:
 	if origin == 'left':
@@ -107,3 +121,18 @@ func display_message() -> void:
 	else:
 		cat.message("ok")
 		print("Casi ! 😄")
+
+
+# Nos dice si no pateamos el balon a tiempo
+func kick_missed() -> bool:
+	var EPS: float = 0.5
+	var distancia: float
+	if origin == 'left':
+		distancia = position.distance_to(hit_zone_pos_right)	
+	if origin == "right":
+		distancia = position.distance_to(hit_zone_pos_left)
+	
+	if distancia < EPS:
+		return true
+	
+	return false
