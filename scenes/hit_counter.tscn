@@ -1,0 +1,235 @@
+[gd_scene load_steps=12 format=3 uid="uid://stsllwyohr45"]
+
+[ext_resource type="Script" uid="uid://lxfe5lmnd11" path="res://scripts/hit_counter.gd" id="1_owoq7"]
+[ext_resource type="Texture2D" uid="uid://oe01i6lgaxq3" path="res://assets/UI/vinilo-Sheet.png" id="1_uvumw"]
+[ext_resource type="Texture2D" uid="uid://bldxkiyler51t" path="res://assets/level-2/spark-particle.png" id="3_lrbp8"]
+[ext_resource type="Texture2D" uid="uid://dbs8r8ht0rmae" path="res://assets/level-2/musical-note-outlined.png" id="4_vg8qf"]
+[ext_resource type="Texture2D" uid="uid://bxg3p7o11jgkt" path="res://assets/level-2/musical-note-2-oulined.png" id="5_86xtm"]
+
+[sub_resource type="Animation" id="Animation_oijs7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="Animation" id="Animation_dfqrg"]
+resource_name = "move_vinilo"
+length = 0.7
+loop_mode = 1
+step = 0.0583
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05882353, 0.11764706, 0.1764706, 0.23529412, 0.29411766, 0.3529412, 0.4117647, 0.47058824, 0.5294118, 0.5882353, 0.64705884),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lrbp8"]
+_data = {
+&"RESET": SubResource("Animation_oijs7"),
+&"move_vinilo": SubResource("Animation_dfqrg")
+}
+
+[sub_resource type="Animation" id="Animation_lrbp8"]
+resource_name = "hit"
+length = 0.55
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SparkRight:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(156, -50), Vector2(264, -72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SparkLeft:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.49873108),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(68, 60), Vector2(167, 59)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NoteLeft:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.49873108),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(62, -41), Vector2(143, -82)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NoteRight:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.49873108),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(147, 89), Vector2(272, 68)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.53333336),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_vg8qf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SparkRight:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(264, -72)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SparkLeft:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(167, 59)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("NoteLeft:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(143, -82)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("NoteRight:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(272, 68)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_86xtm"]
+_data = {
+&"RESET": SubResource("Animation_vg8qf"),
+&"hit": SubResource("Animation_lrbp8")
+}
+
+[node name="HitCounter" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_owoq7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_uvumw")
+hframes = 13
+frame = 1
+
+[node name="VinilAnimation" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_lrbp8")
+}
+
+[node name="Score" type="Label" parent="."]
+layout_mode = 0
+offset_left = 98.0
+offset_top = -55.0
+offset_right = 273.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0.0627451, 0.52156866, 0.8, 1)
+theme_override_colors/font_shadow_color = Color(0.050980393, 0.015686275, 0.20784314, 1)
+theme_override_constants/shadow_outline_size = 16
+theme_override_font_sizes/font_size = 85
+text = "0"
+
+[node name="Effects" type="Node2D" parent="."]
+
+[node name="SparkLeft" type="Sprite2D" parent="Effects"]
+position = Vector2(167, 59)
+texture = ExtResource("3_lrbp8")
+
+[node name="NoteLeft" type="Sprite2D" parent="Effects"]
+position = Vector2(143, -82)
+texture = ExtResource("4_vg8qf")
+
+[node name="NoteRight" type="Sprite2D" parent="Effects"]
+position = Vector2(272, 68)
+texture = ExtResource("5_86xtm")
+
+[node name="SparkRight" type="Sprite2D" parent="Effects"]
+position = Vector2(264, -72)
+texture = ExtResource("3_lrbp8")
+
+[node name="EffectsAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Effects")
+libraries = {
+&"": SubResource("AnimationLibrary_86xtm")
+}

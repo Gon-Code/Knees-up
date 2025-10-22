@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://c781kjb3k26e4"]
+[gd_scene load_steps=65 format=3 uid="uid://c781kjb3k26e4"]
 
 [ext_resource type="Texture2D" uid="uid://dov4iv5ah40lj" path="res://assets/level-2/level-2-background.png" id="1_a4ndn"]
 [ext_resource type="Script" uid="uid://b0nnr1ymqrpeq" path="res://scripts/levels/level_2.gd" id="1_dpcxv"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bkfnecjyphb6u" path="res://assets/level-2/main-panda-idle.png" id="6_mr0nw"]
 [ext_resource type="Texture2D" uid="uid://ckvbgu5y02sg0" path="res://assets/level-2/main-panda-jump.png" id="6_paeld"]
 [ext_resource type="Script" uid="uid://cbi0me2l2gubm" path="res://scripts/levels/player.gd" id="7_6akv6"]
+[ext_resource type="PackedScene" uid="uid://stsllwyohr45" path="res://scenes/hit_counter.tscn" id="7_14tv5"]
 [ext_resource type="Texture2D" uid="uid://bnnkse8mm332f" path="res://assets/level-2/main-panda_tap.png" id="9_l8pdp"]
 [ext_resource type="AudioStream" uid="uid://d1vroagesuy7g" path="res://assets/music/level_2.ogg" id="10_l8pdp"]
 [ext_resource type="AudioStream" uid="uid://dbdub64imx7nq" path="res://assets/level-2/jump_sfx.wav" id="11_i3cel"]
@@ -1264,6 +1265,7 @@ libraries = {
 [node name="MirrorBalls" type="Node2D" parent="UI"]
 
 [node name="MirrorBallLeft" type="Sprite2D" parent="UI/MirrorBalls"]
+visible = false
 texture_filter = 1
 position = Vector2(186, -53)
 scale = Vector2(0.2, 0.2)
@@ -1272,7 +1274,6 @@ texture = ExtResource("4_685dq")
 [node name="ShiningEffectLeft" type="CPUParticles2D" parent="UI/MirrorBalls/MirrorBallLeft"]
 position = Vector2(0, -93)
 scale = Vector2(10, 10)
-emitting = false
 amount = 2
 texture = ExtResource("5_3mlnm")
 randomness = 1.0
@@ -1289,7 +1290,6 @@ texture = ExtResource("4_685dq")
 [node name="ShiningEffectRight" type="CPUParticles2D" parent="UI/MirrorBalls/MirrorBallRight"]
 position = Vector2(0, -93)
 scale = Vector2(10, 10)
-emitting = false
 amount = 2
 texture = ExtResource("5_3mlnm")
 randomness = 1.0
@@ -1308,6 +1308,18 @@ libraries = {
 [node name="LevelProgress" parent="UI/CanvasLayer" instance=ExtResource("3_66v34")]
 offset_top = -24.0
 offset_bottom = -24.0
+
+[node name="HitCounter" parent="UI/CanvasLayer" instance=ExtResource("7_14tv5")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 99.0
+offset_top = 68.0
+offset_right = 99.0
+offset_bottom = 68.0
+grow_horizontal = 1
+grow_vertical = 1
+scale = Vector2(0.5, 0.5)
 
 [node name="RedPandas" type="Node2D" parent="."]
 position = Vector2(40, 31)

@@ -20,7 +20,7 @@ extends Node2D
 var beatmap = []
 var time_begin
 var time_delay
-var travel_time = 1.5 # Velocidad desde el spanw hasta la hit zone
+var travel_time = 1.5 # Velocidad desde el spawnhasta la hit zone
 
 # Guardaremos una 2 tupla para indicar tiempo y lado
 var hit_events = []
@@ -47,7 +47,7 @@ func _process(_delta: float) -> void:
 	var time = (Time.get_ticks_usec() - time_begin) / 1000000.0
 	time -= time_delay - travel_time
 	time = max(0, time)
-	#print("Time is: ", time)
+
 	if Input.is_action_just_pressed("left"):
 		var event = {
 			"time": time,
