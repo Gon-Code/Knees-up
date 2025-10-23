@@ -27,24 +27,25 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_o14dv")
 
-[node name="Label" type="Label" parent="."]
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -39.5
-offset_top = -189.0
-offset_right = 39.5
-offset_bottom = -166.0
+offset_left = -183.5
+offset_top = 142.0
+offset_right = 183.5
+offset_bottom = 228.0
 grow_horizontal = 2
-grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
 theme_override_colors/font_color = Color(0.992157, 0.847059, 0.207843, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 20
 theme_override_fonts/font = ExtResource("2_o14dv")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 90
 text = "Knees-Up!"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -54,52 +55,52 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -94.0
-offset_top = -42.0
-offset_right = 94.0
-offset_bottom = 96.0
+offset_left = -126.0
+offset_top = -50.0
+offset_right = 126.0
+offset_bottom = 278.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 60
 alignment = 1
 
 [node name="New" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_colors/font_hover_pressed_color = Color(1, 0.952941, 0.878431, 1)
-theme_override_colors/font_hover_color = Color(1, 0.952941, 0.878431, 1)
 theme_override_colors/font_color = Color(1, 0.952941, 0.878431, 1)
+theme_override_colors/font_hover_color = Color(1, 0.952941, 0.878431, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 0.952941, 0.878431, 1)
 theme_override_fonts/font = ExtResource("2_o14dv")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/hover = ExtResource("3_u7lva")
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("1_5wsvm")
+theme_override_styles/hover = ExtResource("3_u7lva")
 text = "Nueva Partida"
 
 [node name="Load" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.952941, 0.878431, 1)
 theme_override_fonts/font = ExtResource("2_o14dv")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/hover = ExtResource("3_u7lva")
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("1_5wsvm")
+theme_override_styles/hover = ExtResource("3_u7lva")
 text = "Cargar Partida"
 
 [node name="Options" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.952941, 0.878431, 1)
 theme_override_fonts/font = ExtResource("2_o14dv")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/hover = ExtResource("3_u7lva")
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("1_5wsvm")
+theme_override_styles/hover = ExtResource("3_u7lva")
 text = "Opciones"
 
 [node name="Exit" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.952941, 0.878431, 1)
 theme_override_fonts/font = ExtResource("2_o14dv")
-theme_override_font_sizes/font_size = 20
-theme_override_styles/hover = ExtResource("3_u7lva")
+theme_override_font_sizes/font_size = 40
 theme_override_styles/normal = ExtResource("1_5wsvm")
+theme_override_styles/hover = ExtResource("3_u7lva")
 text = "Salir"
 
 [connection signal="pressed" from="VBoxContainer/New" to="." method="_on_new_pressed"]
