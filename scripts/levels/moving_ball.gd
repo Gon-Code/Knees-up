@@ -14,17 +14,17 @@ extends Sprite2D
 @export var hit_the_beat = false
 
 # Posiciones inicial y final
-const initial_pos_left = Vector2(-66.0,855.0)
-const initial_pos_right = Vector2(2066.0,855.0)
+const initial_pos_left = Vector2(0.0 - 80.0,855.0)
+const initial_pos_right = Vector2(1920.0 + 80.0,855.0)
 const final_pos_left = Vector2(144.0,358.0)
 const final_pos_right = Vector2(1726.0, 358.0)
 
 # Tiempre entre punto inicial y la hit zone
-const travel_time: float = 1.5 # segundos, desde la izq se demora .3 seg mas que de la derecha
-const hit_zone_pos = Vector2(893.0, 805.0)
+const travel_time: float = 2.85
+const hit_zone_pos = Vector2(960.0, 805.0)
 
-const hit_zone_pos_left = Vector2(893.0 - 100, 855.0)
-const hit_zone_pos_right = Vector2(893.0 + 100, 855.0)
+const hit_zone_pos_left = Vector2(960.0 - 100.0, 855.0)
+const hit_zone_pos_right = Vector2(960.0 + 100.0, 855.0)
 
 # Si se esta moviendo hacia el target, no la hit zone
 var is_ball_moving_to_target: bool = false
