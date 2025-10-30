@@ -42,10 +42,13 @@ jobs:
         cd ../..
 
     - name: 🏷️ Generate and Push Git Tag
-      id: generate_tag
       run: |
-        COMMIT_COUNT=$(git rev-list --count HEAD)
-        NEW_TAG="v1.0.${COMMIT_COUNT}"
+        # 1. Contar cuántos tags existen que coincidan con el patrón v1.0.*
+        COUNT=$(git tag -l "v1.0.*" --sort=-v:refname | wc -l)
+        # 2. El siguiente número de parche es el conteo actual + 1 (asumiendo que el primer tag es v1.0.1)
+        NEXT_PATCH=$((COUNT + 1))
+        NEW_TAG="v1.0.${NEXT_PATCH}"
+
         git tag $NEW_TAG
         git push origin $NEW_TAG
         echo "tag_name=$NEW_TAG" >> $GITHUB_OUTPUT
