@@ -1,12 +1,14 @@
-[gd_scene load_steps=17 format=3 uid="uid://dc4635d2psirn"]
+[gd_scene load_steps=19 format=3 uid="uid://dc4635d2psirn"]
 
 [ext_resource type="Script" uid="uid://vywbr5ybqgrh" path="res://scripts/levels/level_1.gd" id="1_x42e6"]
 [ext_resource type="Texture2D" uid="uid://cs4oklwo4ncje" path="res://assets/level-1/easy/Summer7.png" id="2_6761a"]
 [ext_resource type="Texture2D" uid="uid://c0xblyl5fw5je" path="res://assets/level-1/Hit Zone.png" id="3_sk5k4"]
-[ext_resource type="Texture2D" uid="uid://db2sil1mtl8vh" path="res://assets/level-1/easy/bullseye.png" id="4_6761a"]
+[ext_resource type="Texture2D" path="res://assets/level-1/easy/bullseye - copia.png" id="4_excbq"]
 [ext_resource type="AudioStream" uid="uid://8h5jlvrsn44y" path="res://assets/music/level_1_easy.ogg" id="4_oc4kc"]
 [ext_resource type="PackedScene" uid="uid://capgu4jtuhoov" path="res://scenes/combo_counter.tscn" id="5_dga24"]
+[ext_resource type="Texture2D" uid="uid://bncjk47scmunv" path="res://assets/level-1/easy/bullseye_layer_2.png" id="5_iav0o"]
 [ext_resource type="PackedScene" uid="uid://bv473ch107qjb" path="res://scenes/UI/level_progress.tscn" id="5_oc4kc"]
+[ext_resource type="Texture2D" uid="uid://bpcoj7qkgb1no" path="res://assets/level-1/easy/bullseye_layer_1.png" id="6_dnkej"]
 [ext_resource type="PackedScene" uid="uid://stsllwyohr45" path="res://scenes/hit_counter.tscn" id="6_s8va5"]
 [ext_resource type="PackedScene" uid="uid://01qo01k2brxh" path="res://scenes/levels/cat-message.tscn" id="6_sk5k4"]
 
@@ -29,7 +31,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("UI/TargetLeft/Sprite2D:scale")
+tracks/0/path = NodePath("UI/TargetLeft/Layer1:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -41,7 +43,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("UI/TargetRight/Sprite2D:scale")
+tracks/1/path = NodePath("UI/TargetRight/Layer1:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -107,12 +109,19 @@ offset_right = 184.0
 offset_bottom = 398.0
 scale = Vector2(1.35, 1.35)
 
-[node name="Sprite2D" type="Sprite2D" parent="UI/TargetLeft"]
+[node name="Layer1" type="Sprite2D" parent="UI/TargetLeft"]
+self_modulate = Color(1, 0.23529412, 0.2901961, 1)
 texture_filter = 1
 scale = Vector2(4, 4)
-texture = ExtResource("4_6761a")
+texture = ExtResource("4_excbq")
+
+[node name="Layer2" type="Sprite2D" parent="UI/TargetLeft"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("5_iav0o")
 
 [node name="Area2D" type="Area2D" parent="UI/TargetLeft"]
+visible = false
 position = Vector2(16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="UI/TargetLeft/Area2D"]
@@ -127,10 +136,16 @@ offset_right = 1766.0
 offset_bottom = 398.0
 scale = Vector2(1.35, 1.35)
 
-[node name="Sprite2D" type="Sprite2D" parent="UI/TargetRight"]
+[node name="Layer1" type="Sprite2D" parent="UI/TargetRight"]
+self_modulate = Color(0, 0.7058824, 1, 1)
 texture_filter = 1
 scale = Vector2(4, 4)
-texture = ExtResource("4_6761a")
+texture = ExtResource("6_dnkej")
+
+[node name="Layer2" type="Sprite2D" parent="UI/TargetRight"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("5_iav0o")
 
 [node name="Area2D" type="Area2D" parent="UI/TargetRight"]
 position = Vector2(24, 16)
