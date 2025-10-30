@@ -76,16 +76,19 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = 768.0
+offset_bottom = 432.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_gl321")
 
 [node name="Hit-Zone" type="Panel" parent="UI"]
 layout_mode = 0
-offset_left = 526.0
-offset_top = 465.0
-offset_right = 626.0
-offset_bottom = 565.0
+offset_left = 893.0
+offset_top = 805.0
+offset_right = 993.0
+offset_bottom = 905.0
+scale = Vector2(2, 2)
 pivot_offset = Vector2(50, 50)
 theme_override_styles/panel = SubResource("StyleBoxTexture_ieimj")
 
@@ -98,10 +101,11 @@ shape = SubResource("RectangleShape2D_x42e6")
 
 [node name="TargetLeft" type="Panel" parent="UI"]
 layout_mode = 0
-offset_left = 128.0
-offset_top = 190.0
-offset_right = 168.0
-offset_bottom = 230.0
+offset_left = 144.0
+offset_top = 358.0
+offset_right = 184.0
+offset_bottom = 398.0
+scale = Vector2(1.35, 1.35)
 
 [node name="Sprite2D" type="Sprite2D" parent="UI/TargetLeft"]
 texture_filter = 1
@@ -117,10 +121,11 @@ shape = SubResource("RectangleShape2D_6761a")
 
 [node name="TargetRight" type="Panel" parent="UI"]
 layout_mode = 0
-offset_left = 1024.0
-offset_top = 190.0
-offset_right = 1064.0
-offset_bottom = 230.0
+offset_left = 1726.0
+offset_top = 358.0
+offset_right = 1766.0
+offset_bottom = 398.0
+scale = Vector2(1.35, 1.35)
 
 [node name="Sprite2D" type="Sprite2D" parent="UI/TargetRight"]
 texture_filter = 1
@@ -137,21 +142,23 @@ shape = SubResource("RectangleShape2D_sk5k4")
 [node name="CanvasLayer" type="CanvasLayer" parent="UI"]
 
 [node name="ComboCounter" parent="UI/CanvasLayer" instance=ExtResource("5_dga24")]
-position = Vector2(557, 55)
+position = Vector2(893, 55)
 
 [node name="LevelProgress" parent="UI/CanvasLayer" instance=ExtResource("5_oc4kc")]
+offset_top = -43.0
+offset_bottom = -43.0
+scale = Vector2(2, 2)
 
 [node name="HitCounter" parent="UI/CanvasLayer" instance=ExtResource("6_s8va5")]
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
-offset_left = 99.0
-offset_top = 68.0
-offset_right = 99.0
-offset_bottom = 68.0
+offset_left = 165.0
+offset_top = 140.0
+offset_right = 165.0
+offset_bottom = 140.0
 grow_horizontal = 1
 grow_vertical = 1
-scale = Vector2(0.5, 0.5)
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_oc4kc")
@@ -162,6 +169,7 @@ libraries = {
 }
 
 [node name="CatMessage" parent="." instance=ExtResource("6_sk5k4")]
+visible = false
 position = Vector2(131, 489.00003)
 scale = Vector2(0.3, 0.314)
 

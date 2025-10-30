@@ -30,7 +30,7 @@ func update_combo() -> void:
 	if correct_hits > 6 :
 		start_rain_effect()
 	if correct_hits >= 10:
-		contador.position.x = -12.0
+		contador.position.x = -27.0
 
 # Esconde el Combo Counter
 func hide_combo() -> void:

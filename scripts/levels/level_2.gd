@@ -7,8 +7,9 @@ extends Node2D
 @onready var red_pandas: Node2D = $RedPandas
 @onready var speakers_animation: AnimationPlayer = $UI/Speakers/SpeakersAnimation
 @onready var disco_ball_animation: AnimationPlayer = $UI/MirrorBalls/DiscoBallAnimation
-@onready var combo_counter: Node2D = $ComboCounter
+@onready var combo_counter: Node2D = $UI/CanvasLayer/ComboCounter
 @onready var hit_counter: Control = $UI/CanvasLayer/HitCounter
+
 
 var side: String
 var action : String
