@@ -18,9 +18,7 @@ extends Node2D
 @export var accel_threshold: float = 1.2 # Umbral en m/s²
 
 var beatmap = []
-var time_begin
-var time_delay
-var travel_time = 1.5 # Velocidad desde el spawnhasta la hit zone
+var travel_time = 2.85 # Velocidad desde el spawnhasta la hit zone
 
 # Guardaremos una 2 tupla para indicar tiempo y lado
 var hit_events = []
@@ -38,36 +36,24 @@ func _ready() -> void:
 		#print("beatmap cargado !", beatmap)
 		
 	# Starts the Music !
-	time_begin = Time.get_ticks_usec()
-	time_delay = AudioServer.get_time_to_next_mix() + AudioServer.get_output_latency()
 	music.play()
 	animation_player.play("pulse")
 
 func _process(_delta: float) -> void:
-	var time = (Time.get_ticks_usec() - time_begin) / 1000000.0
-	time -= time_delay - travel_time
-	time = max(0, time)
-
-	if Input.is_action_just_pressed("left"):
-		var event = {
-			"time": time,
-			"side": "left"
-		}
-		hit_events.append(event)
-		print(event, ",")
-	if Input.is_action_just_pressed("right"):
-		var event = {
-			"time": time,
-			"side": "right"
-		}
-		hit_events.append(event)
-		print(event, ",")
-	
-	while not beatmap.is_empty() and time >= beatmap.front()["time"]:
+	# Obtenemos tiempo de reproduccion
+	var time = get_current_time_playing()
+	#time -= travel_time
+	#time = max(0, time)
+	var EPS = 0.5
+	while not beatmap.is_empty() and time >= beatmap.front()["time"] - travel_time + EPS:
 		var note = beatmap.pop_front()
+		print("Tiempo Guardado en beatmap: ", note['time'])
+		print("Tiempo Reproduccion Actual: ", time)
 		# Randomizamos la creacion de balones
 		create_moving_ball(note["side"], random_sport_ball())
 	
+	return
+
 # Funcion que instancia los balones
 func create_moving_ball(origin: String, ball_type: Resource) -> void:
 	var ball = moving_ball_scene.instantiate()
@@ -77,7 +63,12 @@ func create_moving_ball(origin: String, ball_type: Resource) -> void:
 # Selecciona una pelota al azar
 func random_sport_ball() -> Resource:
 		return Sport_balls[randi() % 4]
-		
+
+# Funcion que retorna el tiempo de reproduccion de la cancion
+func get_current_time_playing() -> float:
+	var time: float = music.get_playback_position() + AudioServer.get_time_since_last_mix() - AudioServer.get_output_latency()
+	return time
+	
 func _ball_on_hit_zone(area: Area2D) -> void:
 	area.get_parent().on_hit_area = true
 
