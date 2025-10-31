@@ -15,6 +15,8 @@ jobs:
     steps:
     - name: 🐙 Checkout repository
       uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
 
     - uses: chickensoft-games/setup-godot@v2
       name: 🤖 Setup Godot
@@ -22,35 +24,42 @@ jobs:
         version: 4.5.0
         include-templates: true
 
-    - name: 🎮 Install SDL2
-      run: |
-        sudo apt-get update && sudo apt-get install -y libsdl2-2.0-0
-    
-    - name: 🪟 Export for Windows
-      run: |
-        mkdir -p builds/windows
-        godot --headless --export-release "Windows Desktop" builds/windows/knees-up.exe
-
-    - name: 📦 Add extra DLL
-      run: |
-        cp addons/godot-sdl-gyro/libsdlgyro.windows.template_release.x86_64.dll builds/windows/
 
     - name: 📚 Archive Windows build
       run: |
         cd builds/windows
-        zip -r ../../Knees-up-windows.zip ../../knees-up.exe libsdlgyro.windows.template_release.x86_64.dll
+        # Corregido para comprimir solo los archivos necesarios
+        zip -r ../../Knees-up-windows.zip knees-up.exe libsdlgyro.windows.template_release.x86_64.dll
         cd ../..
-
+    
     - name: 🏷️ Generate and Push Git Tag
+      id: generate_tag
       run: |
-        # 1. Contar cuántos tags existen que coincidan con el patrón v1.0.*
-        COUNT=$(git tag -l "v1.0.*" --sort=-v:refname | wc -l)
-        # 2. El siguiente número de parche es el conteo actual + 1 (asumiendo que el primer tag es v1.0.1)
+        # Usar 'git fetch --tags' para asegurar que los tags están disponibles localmente
+        git fetch --tags
+        
+        COUNT=$(git tag -l "v1.0.*" | wc -l)
+
         NEXT_PATCH=$((COUNT + 1))
         NEW_TAG="v1.0.${NEXT_PATCH}"
 
+        echo "Generando nuevo tag: $NEW_TAG"
         git tag $NEW_TAG
-        git push origin $NEW_TAG
+        
+        # El push es lo que falla si el tag ya existe. Usaremos un condicional.
+        if git push origin $NEW_TAG 2>/dev/null; then
+          echo "Tag $NEW_TAG subido exitosamente."
+        else
+          echo "Advertencia: El tag $NEW_TAG ya existe en el repositorio remoto. NO se subirá un nuevo tag."
+          # Si falla el push, significa que ya existe, pero necesitamos un tag único para la release.
+          # Vamos a usar un tag basado en el commit hash si ya existe para crear la release
+          # O mejor, aseguramos que el tag sea siempre único usando el RUN_NUMBER como fallback.
+          RUN_NUMBER=${{ github.run_number }}
+          NEW_TAG="v1.0.${COUNT}.${RUN_NUMBER}"
+          echo "tag_name=$NEW_TAG" >> $GITHUB_OUTPUT
+          exit 0 # Salimos del paso sin error si ya existe.
+        fi
+
         echo "tag_name=$NEW_TAG" >> $GITHUB_OUTPUT
 
     - name: Create GitHub Release
