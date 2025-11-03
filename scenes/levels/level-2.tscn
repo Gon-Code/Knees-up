@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://c781kjb3k26e4"]
+[gd_scene load_steps=66 format=3 uid="uid://c781kjb3k26e4"]
 
 [ext_resource type="Texture2D" uid="uid://dov4iv5ah40lj" path="res://assets/level-2/level-2-background.png" id="1_a4ndn"]
 [ext_resource type="Script" uid="uid://b0nnr1ymqrpeq" path="res://scripts/levels/level_2.gd" id="1_dpcxv"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://ckvbgu5y02sg0" path="res://assets/level-2/main-panda-jump.png" id="6_paeld"]
 [ext_resource type="Script" uid="uid://cbi0me2l2gubm" path="res://scripts/levels/player.gd" id="7_6akv6"]
 [ext_resource type="PackedScene" uid="uid://stsllwyohr45" path="res://scenes/hit_counter.tscn" id="7_14tv5"]
+[ext_resource type="PackedScene" uid="uid://bhd00lspga1na" path="res://scenes/score_menu.tscn" id="9_ad8jv"]
 [ext_resource type="Texture2D" uid="uid://bnnkse8mm332f" path="res://assets/level-2/main-panda_tap.png" id="9_l8pdp"]
 [ext_resource type="AudioStream" uid="uid://d1vroagesuy7g" path="res://assets/music/level_2.ogg" id="10_l8pdp"]
 [ext_resource type="AudioStream" uid="uid://dbdub64imx7nq" path="res://assets/level-2/jump_sfx.wav" id="11_i3cel"]
@@ -1374,6 +1375,9 @@ grow_vertical = 1
 [node name="ComboCounter" parent="UI/CanvasLayer" instance=ExtResource("19_ux8lk")]
 position = Vector2(904, 46)
 
+[node name="ScoreMenu" parent="UI/CanvasLayer" instance=ExtResource("9_ad8jv")]
+visible = false
+
 [node name="RedPandas" type="Node2D" parent="."]
 position = Vector2(413, 269)
 script = ExtResource("2_5d0y8")
@@ -1445,3 +1449,5 @@ volume_db = 10.0
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_l8pdp")
+
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]

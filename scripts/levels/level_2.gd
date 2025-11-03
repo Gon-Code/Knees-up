@@ -9,6 +9,7 @@ extends Node2D
 @onready var disco_ball_animation: AnimationPlayer = $UI/MirrorBalls/DiscoBallAnimation
 @onready var combo_counter: Node2D = $UI/CanvasLayer/ComboCounter
 @onready var hit_counter: Control = $UI/CanvasLayer/HitCounter
+@onready var score_menu: Control = $UI/CanvasLayer/ScoreMenu
 
 
 var side: String
@@ -87,11 +88,10 @@ func action_on_time(current_time: float) -> bool :
 	var action_executed: bool
 	if action == 'tap':
 		action_executed = PlayerMovement.is_stomp_detected(side)
-		#action_executed = Input.is_action_just_pressed('right')
+		action_executed = Input.is_action_just_pressed("right")
 	if action == 'jump':
 		action_executed = PlayerMovement.is_jump_detected()
-		#action_executed = Input.is_action_just_pressed("right")
-		
+		action_executed = Input.is_action_just_pressed("left")
 	return action_executed
 
 # Actualiza la ventana actual
@@ -103,8 +103,14 @@ func set_ventana(current_time: float) -> void:
 
 	return
 
-# Checks if still on time to hit the current note
+# Checks if still on time to hit the current notew
 func on_time(current_time: float) -> bool:
 	if current_time > inicio_ventana and current_time < fin_ventana:
 		return true
 	return false
+
+
+# Cunado se detiene la musica aparece el puntaje de final de nivel
+func _on_music_finished() -> void:
+	score_menu.show_score()
+	return
