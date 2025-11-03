@@ -86,8 +86,5 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 25
 text = "Volver al MenU"
 
-<<<<<<< HEAD
 [connection signal="pressed" from="PopupPanel/VBoxContainer/Retry" to="." method="_on_retry_pressed"]
-=======
->>>>>>> 6fc2e73 (feat: Puntuacion final Nivel 1)
 [connection signal="pressed" from="PopupPanel/VBoxContainer/BackToMenu" to="." method="_on_back_to_menu_pressed"]
