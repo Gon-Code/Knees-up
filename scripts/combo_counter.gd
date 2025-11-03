@@ -8,6 +8,7 @@ extends Node2D
 @onready var musical_rain_effect: CPUParticles2D = $MusicalRainEffect
 
 var correct_hits: int = 0
+var max_combo: int = 0
 
 func _ready() -> void:
 	combo_counter.visible = false
@@ -19,10 +20,13 @@ func _process(_delta: float) -> void:
 			hide_combo()
 		if Input.is_action_just_pressed("right"):
 			update_combo()
+	PlayerData.max_combo = max_combo
 	
+	return
 # Aumenta el contador de Combo
 func update_combo() -> void:
 	correct_hits += 1
+	max_combo = max(max_combo, correct_hits)
 	if correct_hits >= 1 :
 		contador.text = str(correct_hits)
 		combo_counter.visible = true

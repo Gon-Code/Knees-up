@@ -21,5 +21,6 @@ func _process(_delta: float) -> void:
 func update_score() -> void:
 	score =  int(score_label.text) + 100
 	score_label.text = str(score)
+	PlayerData.notas_acertadas += 1
 	effects_animation.play("hit")
 	

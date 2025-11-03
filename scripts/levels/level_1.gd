@@ -1,7 +1,9 @@
 extends Node2D
 
-# Animation Player
+# Nodos
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var music: AudioStreamPlayer = $Music
+@onready var score_menu: Control = $UI/CanvasLayer/ScoreMenu
 
 # Balones
 @onready var BASEBALL = preload("res://assets/sports-balls/baseball.png")
@@ -12,7 +14,6 @@ extends Node2D
 @onready var Sport_balls = [BASEBALL, BASKETBALL, FOOTBALL, VOLLEYBALL]
 
 @onready var moving_ball_scene = preload("res://scenes/levels/moving_ball.tscn")
-@onready var music: AudioStreamPlayer = $Music
 @onready var beatmap_file = FileAccess.open("res://assets/level-1/easy/beatmap.json", FileAccess.READ)
 
 @export var accel_threshold: float = 1.2 # Umbral en m/s²
@@ -24,7 +25,6 @@ var travel_time = 2.85 # Velocidad desde el spawnhasta la hit zone
 var hit_events = []
 var edit_mode = false
 
-
 func _ready() -> void:
 	randomize()
 	# Este archivo lo creamos previamente presionando
@@ -33,7 +33,6 @@ func _ready() -> void:
 	if beatmap_file and not edit_mode:
 		var content = beatmap_file.get_as_text()
 		beatmap = JSON.parse_string(content)
-		#print("beatmap cargado !", beatmap)
 		
 	# Starts the Music !
 	music.play()
@@ -42,16 +41,12 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# Obtenemos tiempo de reproduccion
 	var time = get_current_time_playing()
-	#time -= travel_time
-	#time = max(0, time)
 	var EPS = 0.5
 	while not beatmap.is_empty() and time >= beatmap.front()["time"] - travel_time + EPS:
 		var note = beatmap.pop_front()
-		print("Tiempo Guardado en beatmap: ", note['time'])
-		print("Tiempo Reproduccion Actual: ", time)
 		# Randomizamos la creacion de balones
 		create_moving_ball(note["side"], random_sport_ball())
-	
+
 	return
 
 # Funcion que instancia los balones
@@ -72,9 +67,14 @@ func get_current_time_playing() -> float:
 func _ball_on_hit_zone(area: Area2D) -> void:
 	area.get_parent().on_hit_area = true
 
-
 func _ball_on_left_target(area: Area2D) -> void:
 	area.get_parent().on_target_area = true
 
 func _ball_on_right_target(area: Area2D) -> void:
 	area.get_parent().on_target_area = true
+
+# Cuando la musica se detiene
+# Paramos la escena y mostramos la pantalla final
+func _on_music_finished() -> void:
+	score_menu.show_score()
+	return
