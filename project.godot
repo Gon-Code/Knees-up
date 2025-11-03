@@ -24,6 +24,7 @@ driver/mix_rate=48000
 
 PlayerMovement="*res://scripts/autoloads/player_movement.gd"
 AudioManager="*res://scripts/autoloads/audio_manager.tscn"
+PlayerData="*res://scripts/autoloads/player_data.gd"
 
 [debug]
 
