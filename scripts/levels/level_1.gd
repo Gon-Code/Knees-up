@@ -4,6 +4,7 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var music: AudioStreamPlayer = $Music
 @onready var score_menu: Control = $UI/CanvasLayer/ScoreMenu
+@onready var pause_menu: Control = $UI/CanvasLayer/PauseMenu
 
 # Balones
 @onready var BASEBALL = preload("res://assets/sports-balls/baseball.png")
@@ -46,6 +47,11 @@ func _process(_delta: float) -> void:
 		var note = beatmap.pop_front()
 		# Randomizamos la creacion de balones
 		create_moving_ball(note["side"], random_sport_ball())
+	
+	# Pause Menu
+	if Input.is_action_just_pressed("pause_game") :
+		get_tree().paused = true
+		pause_menu.show_pause_menu()
 
 	return
 
