@@ -10,6 +10,7 @@ extends Node2D
 @onready var combo_counter: Node2D = $UI/CanvasLayer/ComboCounter
 @onready var hit_counter: Control = $UI/CanvasLayer/HitCounter
 @onready var score_menu: Control = $UI/CanvasLayer/ScoreMenu
+@onready var pause_menu: Control = $UI/CanvasLayer/PauseMenu
 
 
 var side: String
@@ -68,6 +69,10 @@ func _process(_delta: float) -> void:
 			hit_counter.update_score()
 			note_hited = true
 	
+	if Input.is_action_just_pressed('pause_game') :
+		get_tree().paused = true
+		pause_menu.show_pause_menu()
+
 	return
 
 # Returns the current time of playing of the Music node

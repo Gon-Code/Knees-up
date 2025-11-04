@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://c781kjb3k26e4"]
+[gd_scene load_steps=67 format=3 uid="uid://c781kjb3k26e4"]
 
 [ext_resource type="Texture2D" uid="uid://dov4iv5ah40lj" path="res://assets/level-2/level-2-background.png" id="1_a4ndn"]
 [ext_resource type="Script" uid="uid://b0nnr1ymqrpeq" path="res://scripts/levels/level_2.gd" id="1_dpcxv"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c2neoyra1e3ti" path="res://assets/level-2/panda-tap.png" id="4_tn3yb"]
 [ext_resource type="Texture2D" uid="uid://bldxkiyler51t" path="res://assets/level-2/spark-particle.png" id="5_3mlnm"]
 [ext_resource type="Texture2D" uid="uid://bkfnecjyphb6u" path="res://assets/level-2/main-panda-idle.png" id="6_mr0nw"]
+[ext_resource type="PackedScene" uid="uid://dmx2eg67gfu8p" path="res://scenes/pause_menu.tscn" id="6_ntv44"]
 [ext_resource type="Texture2D" uid="uid://ckvbgu5y02sg0" path="res://assets/level-2/main-panda-jump.png" id="6_paeld"]
 [ext_resource type="Script" uid="uid://cbi0me2l2gubm" path="res://scripts/levels/player.gd" id="7_6akv6"]
 [ext_resource type="PackedScene" uid="uid://stsllwyohr45" path="res://scenes/hit_counter.tscn" id="7_14tv5"]
@@ -1355,6 +1356,9 @@ libraries = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+
+[node name="PauseMenu" parent="UI/CanvasLayer" instance=ExtResource("6_ntv44")]
+visible = false
 
 [node name="LevelProgress" parent="UI/CanvasLayer" instance=ExtResource("3_66v34")]
 offset_top = -60.0
