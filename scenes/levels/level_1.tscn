@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dc4635d2psirn"]
+[gd_scene load_steps=20 format=3 uid="uid://dc4635d2psirn"]
 
 [ext_resource type="Script" uid="uid://vywbr5ybqgrh" path="res://scripts/levels/level_1.gd" id="1_x42e6"]
 [ext_resource type="Texture2D" uid="uid://cs4oklwo4ncje" path="res://assets/level-1/easy/Summer7.png" id="2_6761a"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bncjk47scmunv" path="res://assets/level-1/easy/bullseye_layer_2.png" id="5_iav0o"]
 [ext_resource type="PackedScene" uid="uid://bv473ch107qjb" path="res://scenes/UI/level_progress.tscn" id="5_oc4kc"]
 [ext_resource type="Texture2D" uid="uid://bpcoj7qkgb1no" path="res://assets/level-1/easy/bullseye_layer_1.png" id="6_dnkej"]
+[ext_resource type="PackedScene" uid="uid://dmx2eg67gfu8p" path="res://scenes/pause_menu.tscn" id="6_iav0o"]
 [ext_resource type="PackedScene" uid="uid://stsllwyohr45" path="res://scenes/hit_counter.tscn" id="6_s8va5"]
 [ext_resource type="PackedScene" uid="uid://01qo01k2brxh" path="res://scenes/levels/cat-message.tscn" id="6_sk5k4"]
 [ext_resource type="PackedScene" uid="uid://bhd00lspga1na" path="res://scenes/score_menu.tscn" id="9_excbq"]
@@ -154,6 +155,9 @@ scale = Vector2(3, 3)
 shape = SubResource("RectangleShape2D_sk5k4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+
+[node name="PauseMenu" parent="UI/CanvasLayer" instance=ExtResource("6_iav0o")]
+visible = false
 
 [node name="ComboCounter" parent="UI/CanvasLayer" instance=ExtResource("5_dga24")]
 position = Vector2(893, 55)
