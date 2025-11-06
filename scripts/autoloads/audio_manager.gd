@@ -1,5 +1,9 @@
 extends Node
 
+# Global Sound
+var volume: float = 1.0
+
+# Nodes
 @onready var music: AudioStreamPlayer = $MusicPlayer
 @onready var sfx: AudioStreamPlayer = $SFXPlayer
 

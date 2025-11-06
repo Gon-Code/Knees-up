@@ -883,17 +883,19 @@ tracks/9/keys = {
 "method": &"play"
 }]
 }
-tracks/10/type = "value"
+tracks/10/type = "method"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Cue:self_modulate")
+tracks/10/path = NodePath(".")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
 "times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1.035265),
-"update": 0,
-"values": [Color(0.6246485, 0.23324388, 1, 1)]
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_jump_color"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_dpcxv"]
@@ -1042,17 +1044,19 @@ tracks/10/keys = {
 "method": &"play"
 }]
 }
-tracks/11/type = "value"
+tracks/11/type = "method"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Cue:self_modulate")
+tracks/11/path = NodePath(".")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 0.23529412, 0.2901961, 1)]
+"values": [{
+"args": [],
+"method": &"change_left_color"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_w6v73"]
@@ -1201,17 +1205,19 @@ tracks/10/keys = {
 "method": &"play"
 }]
 }
-tracks/11/type = "value"
+tracks/11/type = "method"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("Cue:self_modulate")
+tracks/11/path = NodePath(".")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0, 0.7058824, 1, 1)]
+"values": [{
+"args": [],
+"method": &"change_right_color"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l8pdp"]
@@ -1414,9 +1420,8 @@ anim_player = NodePath("../PandasAnimation")
 [node name="Player" type="Sprite2D" parent="RedPandas"]
 position = Vector2(553, 365)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("9_l8pdp")
-flip_h = true
-hframes = 4
+texture = ExtResource("6_paeld")
+hframes = 7
 script = ExtResource("7_6akv6")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RedPandas/Player"]
@@ -1430,11 +1435,10 @@ tree_root = SubResource("AnimationNodeStateMachine_ntv44")
 anim_player = NodePath("../AnimationPlayer")
 
 [node name="Cue" type="Sprite2D" parent="RedPandas/Player"]
-self_modulate = Color(0, 0.7058824, 1, 1)
 texture_filter = 1
-position = Vector2(180, 150)
+position = Vector2(-10, 284)
 scale = Vector2(3, 3)
-texture = ExtResource("15_ewown")
+texture = ExtResource("14_ux8lk")
 hframes = 4
 
 [node name="JumpSoundEffect" type="AudioStreamPlayer" parent="RedPandas"]

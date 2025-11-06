@@ -142,7 +142,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 40
-color = Color(0.95086104, 0.24067229, 0.26119485, 1)
+color = Color(1, 0.23529412, 0.2901961, 1)
 
 [node name="RightControlColor" type="HBoxContainer" parent="OptionsList"]
 layout_mode = 2
@@ -223,5 +223,7 @@ text = "Volver al menú"
 
 [connection signal="value_changed" from="OptionsList/Volumen/Volume" to="." method="_on_volume_value_changed"]
 [connection signal="item_selected" from="OptionsList/Dificultad/OptionButton" to="." method="_on_option_button_item_selected"]
+[connection signal="color_changed" from="OptionsList/LeftControlColor/LeftColor" to="." method="_on_left_color_changed"]
+[connection signal="color_changed" from="OptionsList/RightControlColor/RightColor" to="." method="_on_right_color_changed"]
 [connection signal="pressed" from="OptionsList/FullScreen/FullScreenMode" to="." method="_on_full_screen_mode_activated"]
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
