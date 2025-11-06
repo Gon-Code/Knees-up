@@ -1,8 +1,15 @@
 extends Node
 
-@export var accel_threshold_kick: float = 0.4 # Umbral en m/s²
-@export var accel_treshold_stomp: float = -1.0
-@export var accel_threshold_jump: float = 1.0 
+# Nivel de Dificultad 
+@export var difficulty_index: int = 0
+
+const difficulty_thresholds = [ [0.25, -1.0, 1.0], [0.5, -0.8, 1.2], [0.75, -0.6, 1.4] ]
+
+# Thresholds-Umbral en m/s²
+@export var accel_threshold_kick: float = 0.25
+@export var accel_threshold_stomp: float = -1.0
+@export var accel_threshold_jump: float = 1.0
+
 @export var accel: Dictionary
 
 # Giroscopio
@@ -50,7 +57,7 @@ func is_stomp_detected(leg: String) -> bool:
 	var current_accel: Vector3 = accel.get(control,null)
 	if current_accel == null:
 		return false
-	if current_accel.z < accel_treshold_stomp:
+	if current_accel.z < accel_threshold_stomp:
 		print("Stomp detectado Pierna 💥 ", leg)
 		return true
 	return false
@@ -80,3 +87,13 @@ func switch_controls(side: String) -> String:
 		return "right"
 	else:
 		return "left"
+
+
+# Funcion que setea los threshold de cada movimiento
+# Aumenta el threshold dependiendo de la dificultad
+func set_difficulty(index: int) -> void:
+	difficulty_index = index
+	accel_threshold_kick = difficulty_thresholds[difficulty_index][0]
+	accel_threshold_stomp = difficulty_thresholds[difficulty_index][1]
+	accel_threshold_jump = difficulty_thresholds[difficulty_index][2]
+	return
