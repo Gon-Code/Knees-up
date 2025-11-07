@@ -5,6 +5,8 @@ extends Node2D
 @onready var music: AudioStreamPlayer = $Music
 @onready var score_menu: Control = $UI/CanvasLayer/ScoreMenu
 @onready var pause_menu: Control = $UI/CanvasLayer/PauseMenu
+@onready var left_target: Sprite2D = $UI/TargetLeft/Layer1
+@onready var right_target: Sprite2D = $UI/TargetRight/Layer1
 
 # Balones
 @onready var BASEBALL = preload("res://assets/sports-balls/baseball.png")
@@ -27,6 +29,7 @@ var hit_events = []
 var edit_mode = false
 
 func _ready() -> void:
+	change_target_colors()
 	randomize()
 	# Este archivo lo creamos previamente presionando
 	# las acciones left y right
@@ -34,11 +37,11 @@ func _ready() -> void:
 	if beatmap_file and not edit_mode:
 		var content = beatmap_file.get_as_text()
 		beatmap = JSON.parse_string(content)
-		
+	
 	# Starts the Music !
 	music.play()
 	animation_player.play("pulse")
-
+	
 func _process(_delta: float) -> void:
 	# Obtenemos tiempo de reproduccion
 	var time = get_current_time_playing()
@@ -83,4 +86,10 @@ func _ball_on_right_target(area: Area2D) -> void:
 # Paramos la escena y mostramos la pantalla final
 func _on_music_finished() -> void:
 	score_menu.show_score()
+	return
+
+# Cambia los colores de los targets
+func change_target_colors() -> void:
+	left_target.self_modulate = PlayerData.left_color
+	right_target.self_modulate = PlayerData.right_color
 	return
