@@ -1,5 +1,11 @@
 extends Node
 
+# Full Screen Mode
+var full_screen: bool = true
+
+# Colores de los mandos
+var left_color: Color = Color('ff3c4a')
+var right_color: Color = Color('00b4ff')
 
 # Data Puntuacion
 

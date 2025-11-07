@@ -21,7 +21,7 @@ func _on_exit_pressed() -> void:
 ## Cambia la música de fondo
 func _on_options_pressed() -> void:
 	AudioManager.play_sfx(BUTTON_CLICK)
-	await get_tree().process_frame # esperar un frame
+	#await get_tree().process_frame # esperar un frame
 	get_tree().change_scene_to_packed(OPTIONS_MENU)
 	AudioManager.play_music(OPTIONS_MUSIC)
 

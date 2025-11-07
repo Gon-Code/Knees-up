@@ -111,7 +111,6 @@ offset_bottom = 398.0
 scale = Vector2(1.35, 1.35)
 
 [node name="Layer1" type="Sprite2D" parent="UI/TargetLeft"]
-self_modulate = Color(1, 0.23529412, 0.2901961, 1)
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("6_dnkej")
@@ -137,7 +136,6 @@ offset_bottom = 398.0
 scale = Vector2(1.35, 1.35)
 
 [node name="Layer1" type="Sprite2D" parent="UI/TargetRight"]
-self_modulate = Color(0, 0.7058824, 1, 1)
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("6_dnkej")
