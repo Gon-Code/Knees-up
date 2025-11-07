@@ -40,6 +40,10 @@ window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 window/vsync/vsync_mode=0
 
+[editor]
+
+movie_writer/movie_file="D:/Trabajo de Titulo/knees-up/recordings/screen_capture.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/gut/plugin.cfg")

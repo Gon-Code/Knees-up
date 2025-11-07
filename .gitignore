@@ -1,6 +1,5 @@
 # Godot 4+ specific ignores
 .godot/
-/android/
 *.tmp
 
 # Archivos .import carpeta docs
@@ -8,3 +7,6 @@ docs/*.import
 
 # Archivos asesprite
 *.asesprite
+
+# Grabaciones de pantalla
+/recordings/
