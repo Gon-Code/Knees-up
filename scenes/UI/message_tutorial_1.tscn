@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://hl6wsmxrco21"]
+[gd_scene load_steps=7 format=3 uid="uid://hl6wsmxrco21"]
 
 [ext_resource type="Script" uid="uid://s5r0pc1kqwqo" path="res://scripts/levels/message_tutorial_1.gd" id="1_bpa0a"]
 [ext_resource type="FontFile" uid="uid://c62vb51gatlkj" path="res://assets/fonts/Bungee-Regular.ttf" id="2_a2p6m"]
@@ -35,8 +35,39 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_a2p6m"]
+resource_name = "tutorial_level_\""
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Information:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["¡Pisa fuerte con la pierna izquierda cuando el conteo termine!", "¡Pisa fuerte con la pierna derecha cuando el conteo termine!", "Salta con ambas piernas cuando el conteo termine!"]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_tutorial"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bpa0a"]
 _data = {
+&"tutorial_level_2": SubResource("Animation_a2p6m"),
 &"tutorial_message": SubResource("Animation_iv3qg")
 }
 
@@ -79,6 +110,8 @@ theme_override_colors/font_color = Color(0.99215686, 0.84705883, 0.20784314, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 10
 theme_override_font_sizes/font_size = 50
+text = "Patea los balones que provienen desde la izquierda
+con tu pierna izquierda"
 horizontal_alignment = 1
 
 [node name="Skip" type="Label" parent="."]
