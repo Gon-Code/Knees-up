@@ -6,6 +6,7 @@ const OPTIONS_MUSIC: AudioStream = preload("res://assets/sfx/options.ogg")
 const MAIN_MENU_MUSIC: AudioStream = preload("res://assets/sfx/menu_principal.ogg")
 const LEVEL_SELECTION: PackedScene = preload("res://scenes/UI/level_selection.tscn")
 const OPTIONS_MENU: PackedScene = preload("res://scenes/options_menu.tscn")
+const CREDITS_MENU: PackedScene = preload("res://scenes/credits_menu.tscn")
 const BUTTON_CLICK: AudioStream = preload("res://assets/sfx/button-1.wav")
 
 ## Funcion Ready, reproducimos la música de inicio
@@ -26,7 +27,8 @@ func _on_options_pressed() -> void:
 	AudioManager.play_music(OPTIONS_MUSIC)
 
 ## Botón Load (aún no implementado)
-func _on_load_pressed() -> void:
+func _on_credits_pressed() -> void:
+	get_tree().change_scene_to_packed(CREDITS_MENU)
 	AudioManager.play_sfx(BUTTON_CLICK)
 
 ## Botón Nueva Partida
