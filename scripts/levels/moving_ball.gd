@@ -46,7 +46,6 @@ func _process(delta: float) -> void:
 		joycon_rumble(origin)
 
 	if on_hit_area and not hit_the_beat and (PlayerMovement.is_kick_detected(PlayerMovement.accel, origin) or Input.is_action_just_pressed("up")):
-		display_message()
 		combo_counter.update_combo()
 		hit_counter.update_score()
 		audio_stream_player.play()

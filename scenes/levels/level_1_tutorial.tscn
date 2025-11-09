@@ -1,0 +1,185 @@
+[gd_scene load_steps=18 format=3 uid="uid://ceguo87ll0xt2"]
+
+[ext_resource type="Script" uid="uid://cpeyx1witb3ee" path="res://scripts/levels/level_1_tutorial.gd" id="1_uonw3"]
+[ext_resource type="Texture2D" uid="uid://cs4oklwo4ncje" path="res://assets/level-1/easy/Summer7.png" id="2_mw2ch"]
+[ext_resource type="Texture2D" uid="uid://c0xblyl5fw5je" path="res://assets/level-1/Hit Zone.png" id="3_brojg"]
+[ext_resource type="Texture2D" uid="uid://bpcoj7qkgb1no" path="res://assets/level-1/easy/bullseye_layer_1.png" id="4_s3lcb"]
+[ext_resource type="Texture2D" uid="uid://bncjk47scmunv" path="res://assets/level-1/easy/bullseye_layer_2.png" id="5_vokej"]
+[ext_resource type="PackedScene" uid="uid://dmx2eg67gfu8p" path="res://scenes/pause_menu.tscn" id="6_fkqf5"]
+[ext_resource type="PackedScene" uid="uid://capgu4jtuhoov" path="res://scenes/combo_counter.tscn" id="7_navno"]
+[ext_resource type="AudioStream" uid="uid://cdy3ykc6bp7jv" path="res://assets/level-1/easy/level_1_tutorial.ogg" id="7_uonw3"]
+[ext_resource type="PackedScene" uid="uid://stsllwyohr45" path="res://scenes/hit_counter.tscn" id="8_3wout"]
+[ext_resource type="PackedScene" uid="uid://hl6wsmxrco21" path="res://scenes/UI/message_tutorial_1.tscn" id="9_fbmah"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gl321"]
+texture = ExtResource("2_mw2ch")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ieimj"]
+texture = ExtResource("3_brojg")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x42e6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6761a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sk5k4"]
+
+[sub_resource type="Animation" id="Animation_6761a"]
+resource_name = "oulse"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UI/TargetLeft/Layer1:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(4.3, 4.3), Vector2(4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UI/TargetRight/Layer1:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(4.3, 4.3), Vector2(4, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sk5k4"]
+_data = {
+&"pulse": SubResource("Animation_6761a")
+}
+
+[node name="Level1Tutorial" type="Node2D"]
+script = ExtResource("1_uonw3")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Background" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 768.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_gl321")
+
+[node name="Hit-Zone" type="Panel" parent="UI"]
+layout_mode = 0
+offset_left = 893.0
+offset_top = 805.0
+offset_right = 993.0
+offset_bottom = 905.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(50, 50)
+theme_override_styles/panel = SubResource("StyleBoxTexture_ieimj")
+
+[node name="Area2D" type="Area2D" parent="UI/Hit-Zone"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/Hit-Zone/Area2D"]
+position = Vector2(50, 50)
+scale = Vector2(6.5, 5)
+shape = SubResource("RectangleShape2D_x42e6")
+
+[node name="TargetLeft" type="Panel" parent="UI"]
+layout_mode = 0
+offset_left = 144.0
+offset_top = 358.0
+offset_right = 184.0
+offset_bottom = 398.0
+scale = Vector2(1.35, 1.35)
+
+[node name="Layer1" type="Sprite2D" parent="UI/TargetLeft"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_s3lcb")
+
+[node name="Layer2" type="Sprite2D" parent="UI/TargetLeft"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("5_vokej")
+
+[node name="Area2D" type="Area2D" parent="UI/TargetLeft"]
+position = Vector2(16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/TargetLeft/Area2D"]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_6761a")
+
+[node name="TargetRight" type="Panel" parent="UI"]
+layout_mode = 0
+offset_left = 1726.0
+offset_top = 358.0
+offset_right = 1766.0
+offset_bottom = 398.0
+scale = Vector2(1.35, 1.35)
+
+[node name="Layer1" type="Sprite2D" parent="UI/TargetRight"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("4_s3lcb")
+
+[node name="Layer2" type="Sprite2D" parent="UI/TargetRight"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("5_vokej")
+
+[node name="Area2D" type="Area2D" parent="UI/TargetRight"]
+position = Vector2(24, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UI/TargetRight/Area2D"]
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_sk5k4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="UI"]
+
+[node name="MessageTutorial1" parent="UI/CanvasLayer" instance=ExtResource("9_fbmah")]
+
+[node name="PauseMenu" parent="UI/CanvasLayer" instance=ExtResource("6_fkqf5")]
+visible = false
+
+[node name="ComboCounter" parent="UI/CanvasLayer" instance=ExtResource("7_navno")]
+position = Vector2(893, 55)
+
+[node name="HitCounter" parent="UI/CanvasLayer" instance=ExtResource("8_3wout")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 165.0
+offset_top = 140.0
+offset_right = 165.0
+offset_bottom = 140.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_uonw3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_sk5k4")
+}
+
+[connection signal="area_entered" from="UI/Hit-Zone/Area2D" to="." method="_ball_on_hit_zone"]
+[connection signal="area_entered" from="UI/TargetLeft/Area2D" to="." method="_ball_on_left_target"]
+[connection signal="area_entered" from="UI/TargetRight/Area2D" to="." method="_ball_on_right_target"]
+[connection signal="finished" from="Music" to="." method="_on_music_finished"]
