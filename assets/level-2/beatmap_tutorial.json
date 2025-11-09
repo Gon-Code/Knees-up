@@ -1,0 +1,31 @@
+[
+    {
+        "time": 5.482,
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
+    },
+    {
+        "time": 9.948,
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
+    },
+    {
+        "time": 13.689,
+        "type": "jump",
+        "action": "jump"
+    },
+    {
+        "time": 18.155,
+        "type": "left_tap",
+        "action": "tap",
+        "side": "left"
+    },
+    {
+        "time": 21.878,
+        "type": "right_tap",
+        "action": "tap",
+        "side": "right"
+    }
+]

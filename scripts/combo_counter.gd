@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var Debug: bool
+@export var Debug: bool = false
 
 @onready var contador: Label = $Counter
 @onready var combo_counter: Node2D = $"."
@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	# Only for Debugging
-	if Debug:
+	if Debug == true and false:
 		if Input.is_action_just_pressed("left"):
 			hide_combo()
 		if Input.is_action_just_pressed("right"):
