@@ -2,8 +2,6 @@ extends Control
 
 @onready var score: Label = $PopupPanel/VBoxContainer/Score
 
-const MAIN_MENU: PackedScene = preload("res://scenes/UI/main_menu.tscn")
-
 func _ready() -> void:
 	pass
 
@@ -20,5 +18,5 @@ func _on_retry_pressed() -> void:
 
 # Boton volver al menu
 func _on_back_to_menu_pressed() -> void:
-	get_tree().change_scene_to_packed(MAIN_MENU)
+	get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
 	return
