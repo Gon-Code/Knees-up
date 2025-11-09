@@ -5,7 +5,7 @@ extends Control
 @onready var level_2_button: Button = $Level2
 
 const MAIN_MENU = "res://scenes/UI/main_menu.tscn"
-const LEVEL_1 = preload("res://scenes/levels/level_1.tscn")
+const LEVEL_1 = preload("res://scenes/levels/level_1_tutorial.tscn")
 const LEVEL_2 = preload("res://scenes/levels/level-2.tscn")
 const BUTTON_CLICK: AudioStream = preload("res://assets/sfx/button-1.wav")
 
