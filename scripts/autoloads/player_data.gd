@@ -1,5 +1,8 @@
 extends Node
 
+# Nombre del jugador actual
+var username: String
+
 # Full Screen Mode
 var full_screen: bool = true
 
