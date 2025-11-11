@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dku5sx7pc5ljt"]
+[gd_scene load_steps=21 format=3 uid="uid://dku5sx7pc5ljt"]
 
 [ext_resource type="Script" uid="uid://wylf8ehygfuv" path="res://scripts/menu/level_selection.gd" id="1_0of0o"]
 [ext_resource type="Texture2D" uid="uid://cdvxiyijxrjfo" path="res://assets/UI/main-menu.png" id="1_8125v"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cujtks2vquvsk" path="res://assets/UI/back-button.png" id="7_4lv7c"]
 [ext_resource type="StyleBox" uid="uid://btqb1jd0cmpi4" path="res://scenes/UI/back_button_style_hover.tres" id="8_0nkaa"]
 [ext_resource type="StyleBox" uid="uid://dk5m1daoxbybt" path="res://scenes/UI/back_button_style.tres" id="9_fr2er"]
+[ext_resource type="Texture2D" uid="uid://bxg3p7o11jgkt" path="res://assets/level-2/musical-note-2-oulined.png" id="11_kbepv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o14dv"]
 texture = ExtResource("1_8125v")
@@ -49,6 +50,44 @@ expand_margin_left = 8.0
 expand_margin_top = 8.0
 expand_margin_right = 8.0
 expand_margin_bottom = 8.0
+
+[sub_resource type="Animation" id="Animation_kbepv"]
+resource_name = "shaking"
+length = 0.3
+step = 0.025
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2, 0.225, 0.25, 0.275, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.017453292519943295, 0.03490658503988659, 0.05235987755982989, 0.03490658503988659, 0.017453292519943295, 0.0, 0.017453292519943295, 0.03490658503988659, 0.05235987755982989, 0.03490658503988659, 0.017453292519943295, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_qh5sq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g1rwo"]
+_data = {
+&"RESET": SubResource("Animation_qh5sq"),
+&"shaking": SubResource("Animation_kbepv")
+}
 
 [node name="LevelSelection" type="Control"]
 layout_mode = 3
@@ -204,6 +243,59 @@ text = "1.Max - 12 Hits 🥇
 2.Jesu - 10 Hits 🥈
 3.Gon - 8 Hits 🥉"
 
+[node name="UsernameInput" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -381.0
+offset_top = -213.0
+offset_right = -42.0
+offset_bottom = 39.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset = Vector2(169, 126)
+theme_override_constants/separation = 60
+
+[node name="Label" type="Label" parent="UsernameInput"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.992157, 0.847059, 0.207843, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("2_tv5s3")
+theme_override_font_sizes/font_size = 33
+text = "Usuario Actual"
+horizontal_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="UsernameInput"]
+layout_mode = 2
+tooltip_text = "El nombre del usuario con el cual se exportará la data al final de cada partida"
+theme_override_font_sizes/font_size = 26
+placeholder_text = "Gonzalo CArtes"
+alignment = 1
+right_icon = ExtResource("11_kbepv")
+caret_blink = true
+
+[node name="UsernameAlert" type="Label" parent="UsernameInput"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.992157, 0.847059, 0.207843, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 20
+theme_override_fonts/font = ExtResource("2_tv5s3")
+theme_override_font_sizes/font_size = 20
+text = "Ingresa un nombre
+ de usuario para jugar !"
+horizontal_alignment = 1
+
+[node name="UsernameAnimation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../UsernameInput")
+libraries = {
+&"": SubResource("AnimationLibrary_g1rwo")
+}
+
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="Level1" to="." method="_on_level_1_pressed"]
 [connection signal="pressed" from="Level2" to="." method="_on_level_2_pressed"]
+[connection signal="text_changed" from="UsernameInput/LineEdit" to="." method="_on_line_edit_text_changed"]
