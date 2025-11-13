@@ -29,13 +29,14 @@ func _process(_delta: float) -> void:
 	# Diccionario con left / right
 	accel = Gyro.joycon_get_acceleration()
 
+
 # Devuelve true si se detecta una patada en la pierna indicada ('left' o 'right')
 func is_kick_detected(acceleration: Dictionary, leg: String) -> bool:
 	leg = switch_controls(leg)
 	var current_accel = acceleration.get(leg, null)
 	if current_accel == null:
 		return false
-	if leg == 'right' and -current_accel.x > accel_threshold_kick and current_accel.z > accel_threshold_kick:
+	if leg == 'right' and current_accel.x < accel_threshold_kick and current_accel.z > accel_threshold_kick:
 			print("Accel %s detectada: x=%.2f, y=%.2f, z=%.2f" % [leg.capitalize(),
 																  current_accel[0],
 																  current_accel[1],
