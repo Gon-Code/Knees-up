@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var DEBUG : bool = true
+@export var DEBUG : bool = false
 
 @onready var beatmap_file = FileAccess.open("res://assets/level-2/beatmap_tutorial.json", FileAccess.READ)
 @onready var music: AudioStreamPlayer = $Music
@@ -96,10 +96,12 @@ func action_on_time(current_time: float) -> bool :
 	var action_executed: bool
 	if action == 'tap':
 		action_executed = PlayerMovement.is_stomp_detected(side)
-		action_executed = Input.is_action_just_pressed("right")
+		if DEBUG == true:
+			action_executed = Input.is_action_just_pressed("right")
 	if action == 'jump':
 		action_executed = PlayerMovement.is_jump_detected()
-		action_executed = Input.is_action_just_pressed("right")
+		if DEBUG == true:
+			action_executed = Input.is_action_just_pressed("right")
 	return action_executed
 
 # Actualiza la ventana actual

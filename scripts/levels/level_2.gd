@@ -93,10 +93,12 @@ func action_on_time(current_time: float) -> bool :
 	var action_executed: bool
 	if action == 'tap':
 		action_executed = PlayerMovement.is_stomp_detected(side)
-		action_executed = Input.is_action_just_pressed("right")
+		if DEBUG == true:
+			action_executed = Input.is_action_just_pressed("right")
 	if action == 'jump':
 		action_executed = PlayerMovement.is_jump_detected()
-		action_executed = Input.is_action_just_pressed("left")
+		if DEBUG == true:
+			action_executed = Input.is_action_just_pressed("left")
 	return action_executed
 
 # Actualiza la ventana actual
