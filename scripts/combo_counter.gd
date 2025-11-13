@@ -27,7 +27,7 @@ func _process(_delta: float) -> void:
 func update_combo() -> void:
 	correct_hits += 1
 	max_combo = max(max_combo, correct_hits)
-	if correct_hits >= 1 :
+	if correct_hits >= 0 :
 		contador.text = str(correct_hits)
 		combo_counter.visible = true
 		combo_animation.play("update_combo",)
