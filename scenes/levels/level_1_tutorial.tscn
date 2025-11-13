@@ -152,15 +152,11 @@ shape = SubResource("RectangleShape2D_sk5k4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="UI"]
 
-[node name="MessageTutorial1" parent="UI/CanvasLayer" instance=ExtResource("9_fbmah")]
-
-[node name="PauseMenu" parent="UI/CanvasLayer" instance=ExtResource("6_fkqf5")]
-visible = false
-
 [node name="ComboCounter" parent="UI/CanvasLayer" instance=ExtResource("7_navno")]
 position = Vector2(893, 55)
 
 [node name="HitCounter" parent="UI/CanvasLayer" instance=ExtResource("8_3wout")]
+visible = false
 anchors_preset = 0
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -170,6 +166,11 @@ offset_right = 165.0
 offset_bottom = 140.0
 grow_horizontal = 1
 grow_vertical = 1
+
+[node name="MessageTutorial1" parent="UI/CanvasLayer" instance=ExtResource("9_fbmah")]
+
+[node name="PauseMenu" parent="UI/CanvasLayer" instance=ExtResource("6_fkqf5")]
+visible = false
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_uonw3")
