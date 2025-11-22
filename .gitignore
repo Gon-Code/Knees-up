@@ -10,3 +10,9 @@ docs/*.import
 
 # Grabaciones de pantalla
 /recordings/
+
+# gemini-cli settings
+.gemini/
+
+# GitHub App credentials
+gha-creds-*.json
