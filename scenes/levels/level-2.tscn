@@ -1437,7 +1437,7 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="Cue" type="Sprite2D" parent="RedPandas/Player"]
 texture_filter = 1
 position = Vector2(-10, 284)
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 texture = ExtResource("14_ux8lk")
 hframes = 4
 

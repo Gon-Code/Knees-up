@@ -1393,15 +1393,15 @@ script = ExtResource("11_1r8mb")
 [node name="RedPandaLeft" type="Sprite2D" parent="RedPandas"]
 position = Vector2(113, 341)
 scale = Vector2(0.45, 0.45)
-texture = ExtResource("12_ioq55")
+texture = ExtResource("13_vg21a")
 flip_h = true
-hframes = 7
+hframes = 3
 
 [node name="RedPandaRight" type="Sprite2D" parent="RedPandas"]
 position = Vector2(1004, 341)
 scale = Vector2(0.45, 0.45)
-texture = ExtResource("12_ioq55")
-hframes = 7
+texture = ExtResource("13_vg21a")
+hframes = 3
 
 [node name="PandasAnimation" type="AnimationPlayer" parent="RedPandas"]
 root_node = NodePath("../RedPandaRight")
@@ -1418,8 +1418,8 @@ anim_player = NodePath("../PandasAnimation")
 [node name="Player" type="Sprite2D" parent="RedPandas"]
 position = Vector2(553, 365)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("15_v6q50")
-hframes = 7
+texture = ExtResource("17_jgkuf")
+hframes = 3
 script = ExtResource("16_tbm0p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="RedPandas/Player"]
@@ -1435,7 +1435,7 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="Cue" type="Sprite2D" parent="RedPandas/Player"]
 texture_filter = 1
 position = Vector2(-10, 284)
-scale = Vector2(3, 3)
+scale = Vector2(4, 4)
 texture = ExtResource("18_jx44f")
 hframes = 4
 
