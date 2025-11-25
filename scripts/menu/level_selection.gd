@@ -6,7 +6,7 @@ extends Control
 @onready var level_2_button: Button = $Level2
 @onready var username_animation: AnimationPlayer = $UsernameAnimation
 @onready var username_alert: Label = $UsernameInput/UsernameAlert
-
+@onready var line_edit: LineEdit = $UsernameInput/LineEdit
 # Scenes
 const MAIN_MENU = "res://scenes/UI/main_menu.tscn"
 const LEVEL_1 = preload("res://scenes/levels/level_1_tutorial.tscn")
@@ -15,6 +15,16 @@ const BUTTON_CLICK: AudioStream = preload("res://assets/sfx/button-1.wav")
 
 # Variables
 var description_text: String
+var default_placeholder: String = "Ingrese su Nombre"
+
+func _ready() -> void:
+	# Placeholder debe tener el nombre del usuario actual
+	var username = PlayerData.username	
+	if username.is_empty():
+		line_edit.placeholder_text = default_placeholder
+	else:
+		line_edit.text = username
+
 
 func _process(_delta: float) -> void:
 	change_description()

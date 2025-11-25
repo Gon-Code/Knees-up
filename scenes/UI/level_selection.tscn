@@ -51,6 +51,21 @@ expand_margin_top = 8.0
 expand_margin_right = 8.0
 expand_margin_bottom = 8.0
 
+[sub_resource type="Animation" id="Animation_qh5sq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_kbepv"]
 resource_name = "shaking"
 length = 0.3
@@ -65,22 +80,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.025, 0.05, 0.075, 0.1, 0.125, 0.15, 0.175, 0.2, 0.225, 0.25, 0.275, 0.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.017453292519943295, 0.03490658503988659, 0.05235987755982989, 0.03490658503988659, 0.017453292519943295, 0.0, 0.017453292519943295, 0.03490658503988659, 0.05235987755982989, 0.03490658503988659, 0.017453292519943295, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_qh5sq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"values": [0.0, 0.01745329251994329, 0.03490658503988659, 0.05235987755982989, 0.03490658503988659, 0.01745329251994329, 0.0, 0.01745329251994329, 0.03490658503988659, 0.05235987755982989, 0.03490658503988659, 0.01745329251994329, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g1rwo"]
@@ -273,7 +273,6 @@ horizontal_alignment = 1
 layout_mode = 2
 tooltip_text = "El nombre del usuario con el cual se exportará la data al final de cada partida"
 theme_override_font_sizes/font_size = 26
-placeholder_text = "Gonzalo CArtes"
 alignment = 1
 right_icon = ExtResource("11_kbepv")
 caret_blink = true
