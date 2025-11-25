@@ -122,7 +122,7 @@ func on_time(current_time: float) -> bool:
 
 # Cunado se detiene la musica aparece el puntaje de final de nivel
 func _on_music_finished() -> void:
-	if combo_counter.correct_hits < 3 :
+	if combo_counter.max_combo < 3 :
 		get_tree().reload_current_scene()
 	else:
 		music.stop()

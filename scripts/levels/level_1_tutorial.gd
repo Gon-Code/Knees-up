@@ -85,7 +85,7 @@ func _ball_on_right_target(area: Area2D) -> void:
 # Cuando la musica se detiene
 # Paramos la escena y mostramos la pantalla final
 func _on_music_finished() -> void:
-	if combo_counter.correct_hits !=3 :
+	if combo_counter.max_combo < 3 :
 		get_tree().reload_current_scene()
 	else:
 		music.stop()
