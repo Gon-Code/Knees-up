@@ -27,3 +27,11 @@ Mejor Combo: %s
 
 Puntuación: %s " % [notas_acertadas, max_combo, get_level_score()]
 	return final_score_text
+
+
+# Funcion que resetea el score, se debe llamar al comenzar cada nivel 
+func reset_score() -> void :
+	notas_acertadas = 0
+	max_combo = 0
+	puntuacion = 0
+	return

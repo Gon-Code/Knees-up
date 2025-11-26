@@ -33,6 +33,7 @@ var animation_started_at : float
 var note_hited : bool = false
 
 func _ready() -> void:
+	PlayerData.reset_score()
 	# Loads beatmap
 	if beatmap_file:
 		var content = beatmap_file.get_as_text()

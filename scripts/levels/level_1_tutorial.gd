@@ -28,6 +28,7 @@ var travel_time = 2.85 # Velocidad desde el spawnhasta la hit zone
 var hit_events = []
 
 func _ready() -> void:
+	PlayerData.reset_score()
 	change_target_colors()
 	randomize()
 	# Este archivo lo creamos previamente presionando

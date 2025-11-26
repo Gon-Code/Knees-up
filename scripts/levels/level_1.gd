@@ -29,6 +29,7 @@ var hit_events = []
 var edit_mode = false
 
 func _ready() -> void:
+	PlayerData.reset_score()
 	change_target_colors()
 	randomize()
 	# Este archivo lo creamos previamente presionando
