@@ -16,3 +16,9 @@ docs/*.import
 
 # GitHub App credentials
 gha-creds-*.json
+
+# Datos de sesion exportados (CSV generados en runtime)
+/data/
+
+# Archivos temporales de depuracion
+/node_2d.*

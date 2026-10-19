@@ -41,11 +41,11 @@ func _process(delta: float) -> void:
 	if is_ball_moving_to_hit_zone:
 		move_ball_to_hit_zone(delta)
 	
-	if not on_hit_area and PlayerMovement.is_kick_detected(PlayerMovement.accel, origin):
+	if not on_hit_area and PlayerMovement.is_kick_detected(origin):
 		# Vibrar o emitir sonido de equivocacion
 		joycon_rumble(origin)
 
-	if on_hit_area and not hit_the_beat and (PlayerMovement.is_kick_detected(PlayerMovement.accel, origin) or Input.is_action_just_pressed("up")):
+	if on_hit_area and not hit_the_beat and (PlayerMovement.is_kick_detected(origin) or Input.is_action_just_pressed("up")):
 		combo_counter.update_combo()
 		hit_counter.update_score()
 		audio_stream_player.play()

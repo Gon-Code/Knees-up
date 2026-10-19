@@ -29,6 +29,8 @@ var hit_events = []
 var edit_mode = false
 
 func _ready() -> void:
+	PlayerData.level_name = 'level_1'
+	PlayerData.is_recording = true
 	PlayerData.reset_score()
 	change_target_colors()
 	randomize()
@@ -87,6 +89,8 @@ func _ball_on_right_target(area: Area2D) -> void:
 # Paramos la escena y mostramos la pantalla final
 func _on_music_finished() -> void:
 	score_menu.show_score()
+	PlayerData.is_recording = false
+	PlayerData.export_data()
 	return
 
 # Cambia los colores de los targets

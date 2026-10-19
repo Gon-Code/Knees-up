@@ -33,6 +33,8 @@ var animation_started_at : float
 var note_hited : bool = false
 
 func _ready() -> void:
+	PlayerData.level_name = 'level_2'
+	PlayerData.is_recording = true
 	PlayerData.reset_score()
 	# Loads beatmap
 	if beatmap_file:
@@ -121,4 +123,6 @@ func on_time(current_time: float) -> bool:
 # Cunado se detiene la musica aparece el puntaje de final de nivel
 func _on_music_finished() -> void:
 	score_menu.show_score()
+	PlayerData.is_recording = false
+	PlayerData.export_data()
 	return
