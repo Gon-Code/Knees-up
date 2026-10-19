@@ -49,8 +49,6 @@ func _process(_delta: float) -> void:
 func is_kick_detected(leg: String) -> bool:
 	var control = switch_controls(leg)
 	var current_accel = accel_l if control == 'left' else accel_r
-	if current_accel == null:
-		return false
 	# JoyCon Izquierdo Azul - Pierna Derecha
 	if leg == 'right' and current_accel.x < -accel_threshold_kick and current_accel.z  < accel_threshold_kick:
 			print("Aceleracion Control %s detectada: x=%.2f, y=%.2f, z=%.2f" % [control.capitalize(),
@@ -73,8 +71,6 @@ func is_kick_detected(leg: String) -> bool:
 func is_stomp_detected(leg: String) -> bool:
 	var control = switch_controls(leg)
 	var current_accel: Vector3 = accel_l if control == 'left' else accel_r
-	if current_accel == null:
-		return false
 	# JoyCon Izquierdo - Pierna derecha
 	if leg == 'right' and current_accel.z  > accel_threshold_stomp:
 		print("Stomp detectado Pierna 💥 ", leg, " con el control ", control)
@@ -97,9 +93,6 @@ func is_stomp_detected(leg: String) -> bool:
 func is_jump_detected() -> bool:
 	var left_values: Vector3 = accel_l
 	var right_values: Vector3 = accel_r
-	
-	if left_values == null or right_values == null:
-		return false
 	
 	var left_z = left_values.z   # eje Z pierna izquierda
 	var right_z = right_values.z # eje Z pierna derecha
